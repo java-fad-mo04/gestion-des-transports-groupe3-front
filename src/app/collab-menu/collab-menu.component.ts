@@ -12,7 +12,7 @@ export class CollabMenuComponent implements OnInit {
 
   constructor() { }
 
-  collegueConnexion = new Collegue( {nom: 'Victor', prenom: 'Hugo'});
+  collegueConnexion = new Collegue( {nom: 'Victor', prenom: 'Hugo'}); // Création d'un mock de Collegue pour affichage
 
   ngOnInit() {
 

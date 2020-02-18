@@ -10,10 +10,16 @@ import { AuthComponent } from './auth/auth.component';
 import {FormsModule} from "@angular/forms";
 import {StatutConnecteService} from "./auth/statut-connecte.service";
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
+import { CollabReservationsComponent } from './collab-reservations/collab-reservations.component';
+import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.component';
+import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
+  { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
+  { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
+  { path: 'collaborateur/statistiques', component: CollabStatistiquesComponent }, // créer pour test de liaison entre panneau
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 
@@ -22,7 +28,10 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TechComponent,
-    AuthComponent
+    AuthComponent,
+    CollabReservationsComponent,
+    CollabAnnoncesComponent,
+    CollabStatistiquesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +39,7 @@ const routes: Routes = [
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     FormsModule
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

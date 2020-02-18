@@ -34,7 +34,7 @@ const routes: Routes = [
     CollabMenuComponent,
     CollabReservationsComponent,
     CollabAnnoncesComponent,
-    CollabStatistiquesComponent
+    CollabStatistiquesComponent,
   ],
   imports: [
     BrowserModule,

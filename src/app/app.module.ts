@@ -13,11 +13,13 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import { CollabReservationsComponent } from './collab-reservations/collab-reservations.component';
 import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.component';
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
+import { ReserverVehComponent } from './reserver-veh/reserver-veh.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path:'auth', component: AuthComponent},
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
+  { path: 'collaborateur/reservations/creer', component: ReserverVehComponent }, // Reserver un véhicule
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/statistiques', component: CollabStatistiquesComponent }, // créer pour test de liaison entre panneau
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
@@ -31,7 +33,8 @@ const routes: Routes = [
     AuthComponent,
     CollabReservationsComponent,
     CollabAnnoncesComponent,
-    CollabStatistiquesComponent
+    CollabStatistiquesComponent,
+    ReserverVehComponent
   ],
   imports: [
     BrowserModule,

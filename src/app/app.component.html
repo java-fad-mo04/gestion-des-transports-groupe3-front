@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front</title>
+</head>
+<nav>
+
+  </nav>
+
+<body>
+
+<app-collab-menu></app-collab-menu>
+<!--
+<div class="jumbotron">
+  <h2 class="h1 h1-responsive">Super Application</h2>
+  <div *ngIf="!(collegueConnecte | async).estAnonyme()">
+    <span>{{(collegueConnecte | async).email}}</span>
+    <span>({{(collegueConnecte | async).roles}})</span>
+    <a class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
+  </div>
+
+</div> -->
+<router-outlet></router-outlet>
+</body>
+<footer>
+
+</footer>
+</html>

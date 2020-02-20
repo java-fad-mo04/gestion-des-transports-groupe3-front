@@ -1,0 +1,21 @@
+<nav class="navbar navbar-primary" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+
+  <div class="media">  <!-- Logo -->
+    <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="40px" height="40px"
+      class="mr-3" alt="...">
+    <div class="media-body">
+    </div>
+     <!-- Button Reservations -->
+    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/reservations" aria-selected="true" role="tab">Vos
+      réservations</a>
+       <!-- Button Annonces-->
+    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/annonces" aria-selected="false">Vos annonces</a>
+     <!-- Button Statistiques -->
+    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/statistiques" aria-selected="false">Statistiques</a>
+  </div>
+  <!-- Visu Nom et Prénom Collègue-->
+  Bonjour {{collegueConnexion.nom}} {{collegueConnexion.prenom}}
+  <!-- Button Se Déconnecter -->
+  <p><button type="text" routerLink="" class="btn btn-primary mb-2">Se Deconnecter</button></p>
+</nav>

@@ -46,6 +46,7 @@ export class CollabReservationsComponent implements OnInit, AfterViewInit {
     this.mdbTablePagination.calculateLastItemIndex();
     this.cdRef.detectChanges();
 
+
   }
 
 }

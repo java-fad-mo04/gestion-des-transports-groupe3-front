@@ -13,6 +13,7 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import { CollabReservationsComponent } from './collab-reservations/collab-reservations.component';
 import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.component';
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
+import { CollabTablePaginationComponent } from './collab-table-pagination/collab-table-pagination.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
@@ -31,7 +32,8 @@ const routes: Routes = [
     AuthComponent,
     CollabReservationsComponent,
     CollabAnnoncesComponent,
-    CollabStatistiquesComponent
+    CollabStatistiquesComponent,
+    CollabTablePaginationComponent
   ],
   imports: [
     BrowserModule,

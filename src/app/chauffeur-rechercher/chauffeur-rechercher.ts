@@ -14,14 +14,14 @@ import { chauffeursMock} from '../mocks/chauffeurs.mock'
 export class RechercherChauffeurComponent implements OnInit {
 
 
-  // listeChauffeurs : Observable<string[]>;
-  listeChauffeurs = chauffeursMock ;
+  listeChauffeurs : Observable<string[]>;
+  //listeChauffeurs = chauffeursMock ;
 
 
   constructor( private dataService: DataService) { }
 
   rechercherChauffeur( matricule: string, nom: string, prenom: string) {
-     //this.listeChauffeurs = this.dataService.rechercherChauffeur( matricule, nom, prenom );
+     this.listeChauffeurs = this.dataService.rechercherChauffeur( matricule, nom, prenom );
 
   }
 

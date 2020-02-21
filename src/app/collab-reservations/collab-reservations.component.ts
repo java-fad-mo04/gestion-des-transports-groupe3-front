@@ -35,6 +35,7 @@ export class CollabReservationsComponent implements OnInit, AfterViewInit {
 
   historiqueAnnonce = this.his.concat(this.listeAnnonce);
 
+
   ngOnInit() {
     this.mdbTable.setDataSource(this.historiqueAnnonce);
     this.elements = this.mdbTable.getDataSource();

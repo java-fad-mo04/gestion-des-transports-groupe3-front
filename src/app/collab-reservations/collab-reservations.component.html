@@ -74,74 +74,7 @@
           <div class="col-1"></div>
         </div>
         <!-- Partie Historique -->
-        <div class="row">
-          <div class="card-body">
-            <div class="text-left">Historique</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col offset-1">
-            <table mdbTable #tableEl="mdbTable" small="true">
-              <thead>
-                <tr>
-                  <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
-
-                  </th>
-                </tr>
-                </thead>
-              <tbody>
-                <tr *ngFor="let ah of elements; let i = index">
-                  <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex || i < mdbTablePagination.lastItemIndex"
-                    scope="row">{{ah.dateDepart}}</th>
-                  <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex || i < mdbTablePagination.lastItemIndex">
-                    {{ah.adresseDepart}}</td>
-                  <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex || i < mdbTablePagination.lastItemIndex">
-                    {{ah.adresseArrivee}}</td>
-                  <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
-                      (click)="basicModal1.show()" mdbWavesEffect>Détails</button>
-
-                    <div mdbModal #basicModal1="mdbModal" class="modal fade" tabindex="-1" role="dialog"
-                      aria-labelledby="myBasicModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close pull-right" aria-label="Close"
-                              (click)="basicModal1.hide()">
-                              <span aria-hidden="true">×</span>
-                            </button>
-                            <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
-                          </div>
-                          <div class="modal-body">
-                            <p>Départ : {{ah.adresseDepart}}</p>
-                            <p>Destination :{{ah.adresseArrivee}}</p>
-                            <p>Date/Heure :{{ah.dateDepart}}</p>
-                            <p>Véhicule :{{ah.marque}}</p>
-                            <p>Chauffeur :</p>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
-                              (click)="basicModal1.hide()" mdbWavesEffect>Fermer</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="col-1">
-          </div>
-        </div>
-      </div>
-      <tfoot class="grey lighten-5 w-100" >
-
-        <tr>
-          <td colspan="4" >
-            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
-          </td>
-        </tr>
-      </tfoot>
+<app-collab-table-historique [listeHistorique]='historiqueAnnonce'></app-collab-table-historique>
       <div class="card">
       </div>
     </div>

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://gdt.fr'
+  backendUrl: 'http://localhost:8080/',
+  chauffeurUrl: 'chauffeurs'
 };
 
 /*

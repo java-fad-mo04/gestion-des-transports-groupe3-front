@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 
 
 
-const url = environment.backendUrl;
+const url = environment.backendUrl + environment.chauffeurUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class DataService {
 
   rechercherChauffeur( matricule : string, nom: string, prenom: string): Observable<string[]> {
 
-    return this.httpClient.get<string[]>(url + '?matricule=' + matricule + '?nom=' + nom + '?prenom=' + prenom);
+    //return this.httpClient.get<string[]>(url + '?matricule=' + matricule + '?nom=' + nom + '?prenom=' + prenom);
+    return this.httpClient.get<string[]>(url);
 
   }
 

@@ -1,12 +1,12 @@
 /**
- * Collègue utilisateur de l'application.
+ * Collaborateur utilisateur de l'application.
  */
-export class Collegue {
-  nom: string;
-  prenom: string;
-  email: string;
-  motDePasse: string;
-  roles: string[];
+export class Collaborateur {
+  nom:string;
+  prenom:string;
+  email:string;
+  motDePasse:string;
+  roles:string[];
 
 
   constructor(params: any) {

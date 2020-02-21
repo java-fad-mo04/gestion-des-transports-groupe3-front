@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Collegue} from "./auth.domains";
+import {Collaborateur} from "./auth.domains";
 import {AuthService} from "./auth.service";
 import {Router} from "@angular/router";
 
@@ -26,21 +26,21 @@ import {Router} from "@angular/router";
                 <li>admin@dev.fr / superpass / ROLE_ADMINISTRATEUR, ROLE_UTILISATEUR</li>
                 <li>user@dev.fr / superpass / ROLE_UTILISATEUR</li>
               </ul>
-              
+
             </mdb-card-text>
-            
+
           </mdb-card-body>
         </mdb-card>
         <form>
           <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" [validateSuccess]="false" data-error="Une adresse email est requise" id="defaultForm-email" class="form-control" name="email" mdbInputDirective [(ngModel)]="collegue.email" required>
+            <input type="text" [validateSuccess]="false" data-error="Une adresse email est requise" id="defaultForm-email" class="form-control" name="email" mdbInputDirective [(ngModel)]="collaborateur.email" required>
             <label for="defaultForm-email">Email</label>
           </div>
 
           <div class="md-form">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" [validateSuccess]="false"  data-error="Un mot de passe est requis" name="motDePasse" class="form-control" mdbInputDirective [(ngModel)]="collegue.motDePasse" required>
+            <input type="password" id="defaultForm-pass" [validateSuccess]="false"  data-error="Un mot de passe est requis" name="motDePasse" class="form-control" mdbInputDirective [(ngModel)]="collaborateur.motDePasse" required>
             <label for="defaultForm-pass">Mot de passe</label>
           </div>
 
@@ -53,14 +53,14 @@ import {Router} from "@angular/router";
         </form>
       </mdb-card-body>
     </mdb-card>
-    
+
   `,
   styles: []
 })
 export class AuthComponent implements OnInit {
 
 
-  collegue:Collegue = new Collegue({});
+  collaborateur:Collaborateur = new Collaborateur({});
   err:boolean;
 
   constructor(private _authSrv:AuthService, private _router:Router) { }
@@ -69,7 +69,7 @@ export class AuthComponent implements OnInit {
   }
 
   connecter() {
-    this._authSrv.connecter(this.collegue.email, this.collegue.motDePasse)
+    this._authSrv.connecter(this.collaborateur.email, this.collaborateur.motDePasse)
       .subscribe(
         // en cas de succès, redirection vers la page /tech
         col => this._router.navigate(['/tech']),

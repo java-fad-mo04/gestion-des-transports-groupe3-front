@@ -1,0 +1,48 @@
+<div class="row">
+  <h1>Gérer les chauffeurs</h1>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="rechercherChauffeur( saisieMatricule.value, saisieNom.value, saisiePrenom.value)">Filtrer par : </button>
+  </div>
+<</div>
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Matricule </label>
+  </div>
+  <div class="col-4">
+    <input type="text" name="matricule" id="matricule" value="matricule" #saisieMatricule><br>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Nom </label>
+  </div>
+  <div class="col-4">
+    <input type="text" name="nom" id="nom" value="nom" #saisieNom><br>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Prenom </label>
+  </div>
+  <div class="col-6">
+    <input type="text" name="prenom" id="prenom" value="prenom" #saisiePrenom><br>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="creerChauffeur()">Ajouter un chauffeur</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <ul>
+      <li *ngFor="let chauffeur of listeChauffeurs | async">{{ chauffeur }}</li>
+    </ul>
+  </div>
+</div>

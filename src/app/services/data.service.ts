@@ -19,7 +19,12 @@ export class DataService {
   rechercherChauffeur( matricule : string, nom: string, prenom: string): Observable<string[]> {
 
     //return this.httpClient.get<string[]>(url + '?matricule=' + matricule + '?nom=' + nom + '?prenom=' + prenom);
-    return this.httpClient.get<string[]>(url);
+    let chauffeur:Observable<string[]>
+    chauffeur = this.httpClient.get<string[]>(url)
+    chauffeur.forEach(element => {
+      console.log( element)
+    });
+    return chauffeur;
 
   }
 

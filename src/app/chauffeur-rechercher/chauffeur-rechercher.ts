@@ -15,7 +15,6 @@ export class RechercherChauffeurComponent implements OnInit {
 
 
   listeChauffeurs : Observable<string[]>;
-  //listeChauffeurs = chauffeursMock ;
 
 
   constructor( private dataService: DataService) { }

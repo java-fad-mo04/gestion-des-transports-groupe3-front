@@ -38,9 +38,11 @@
   </div>
 
   <div class="col-4">
-    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Ajouter un chauffeur</button>
+    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+      mdbWavesEffect>Ajouter un chauffeur</button>
 
-    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+      aria-labelledby="myBasicModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -55,8 +57,10 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-            <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="ajouterChauffeur( saisieNewMatricule.value)" mdbWavesEffect>Ajouter</button>
+            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+              (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+            <button type="button" mdbBtn color="primary" class="relative waves-light"
+              (click)="ajouterChauffeur( saisieNewMatricule.value)" mdbWavesEffect>Ajouter</button>
           </div>
         </div>
       </div>
@@ -66,10 +70,8 @@
 
 </div>
 
-<div class="row">
-  <div class="col">
-    <ul>
-      <li *ngFor="let chauffeur of listeChauffeurs | async">{{ chauffeur }}</li>
-    </ul>
-  </div>
+<div class="col-6" *ngFor="let chauffeur of listeChauffeurs | async">
+
+  {{ chauffeur.nom }} {{ chauffeur.prenom }} {{ chauffeur.matricule }}
+
 </div>

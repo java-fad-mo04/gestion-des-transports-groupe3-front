@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collegue } from '../auth/auth.domains';
+import { Collaborateur } from '../auth/auth.domains';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class CollabMenuComponent implements OnInit {
 
   constructor() { }
 
-  collegueConnexion = new Collegue( {nom: 'Victor', prenom: 'Hugo'}); // Création d'un mock de Collegue pour affichage
+  collaborateurConnexion = new Collaborateur( {nom: 'Victor', prenom: 'Hugo'}); // Création d'un mock de Collaborateur pour affichage
 
   ngOnInit() {
 

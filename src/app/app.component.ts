@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "./auth/auth.service";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs/internal/Observable";
-import { Collegue } from "./auth/auth.domains";
+import { Collaborateur } from "./auth/auth.domains";
 
 /**
  * Composant principal de l'application.
@@ -14,14 +14,14 @@ import { Collegue } from "./auth/auth.domains";
 })
 export class AppComponent implements OnInit {
 
-  collegueConnecte: Observable<Collegue>;
+  collaborateurConnecte: Observable<Collaborateur>;
 
   constructor(private _authSrv: AuthService, private _router: Router) {
 
   }
 
   /**
-   * Action déconnecter collègue.
+   * Action déconnecter collaborateur.
    */
   seDeconnecter() {
     this._authSrv.seDeconnecter().subscribe(
@@ -30,13 +30,13 @@ export class AppComponent implements OnInit {
   }
 
   /**
-   * A l'initialisation, le composant s'abonne au flux du collègue courant connecté.
+   * A l'initialisation, le composant s'abonne au flux du collaborateur courant connecté.
    *
    * Celui lui permet de rester à jour en fonction des connexions et déconnexions.
    */
   ngOnInit(): void {
 
-    this.collegueConnecte = this._authSrv.collegueConnecteObs;
+    this.collaborateurConnecte = this._authSrv.collaborateurConnecteObs;
   }
 
 }

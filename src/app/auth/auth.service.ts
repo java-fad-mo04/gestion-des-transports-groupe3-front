@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Collegue} from "./auth.domains";
+import {Collaborateur} from "./auth.domains";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs/internal/Observable";
@@ -8,11 +8,11 @@ import {Subject, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
 
 /**
- * Collègue anonyme.
+ * Collaborateur anonyme.
  *
- * @type {Collegue}
+ * @type {Collaborateur}
  */
-const COLLEGUE_ANONYME = new Collegue({});
+const COLLABORATEUR_ANONYME = new Collaborateur({});
 
 /**
  * Service de gestion de l'authentification.
@@ -23,41 +23,41 @@ const COLLEGUE_ANONYME = new Collegue({});
 export class AuthService {
 
   /**
-   * Flux du collègue connecté. Les abonnés sont notifiés dès qu'une connexion ou une déconnexion a lieu.
+   * Flux du collaborateur connecté. Les abonnés sont notifiés dès qu'une connexion ou une déconnexion a lieu.
    *
-   * A l'initialisation, le collègue connecté vaut 'undefined'.
+   * A l'initialisation, le collaborateur connecté vaut 'undefined'.
    *
    * @type {BehaviorSubject<any>}
    */
-  private collegueConnecteSub:BehaviorSubject<Collegue> = new BehaviorSubject(COLLEGUE_ANONYME);
+  private collaborateurConnecteSub:BehaviorSubject<Collaborateur> = new BehaviorSubject(COLLABORATEUR_ANONYME);
 
   constructor(private _http:HttpClient) {
   }
 
   /**
-   * Interface Observable du collègue connecté.
+   * Interface Observable du collaborateur connecté.
    *
-   * @returns {Observable<Collegue>}
+   * @returns {Observable<Collaborateur>}
    */
-  get collegueConnecteObs():Observable<Collegue> {
-    return this.collegueConnecteSub.asObservable();
+  get collaborateurConnecteObs():Observable<Collaborateur> {
+    return this.collaborateurConnecteSub.asObservable();
   }
 
   /**
-   * Service permettant de vérifier si un collegue est authentifié.
+   * Service permettant de vérifier si un collaborateur est authentifié.
    *
-   * Une requête HTTP est déclenchée pour récupérer le collègue connecté s'il n'est pas en cache.
+   * Une requête HTTP est déclenchée pour récupérer le collaborateur connecté s'il n'est pas en cache.
    *
-   * @returns {Observable<Collegue>}
+   * @returns {Observable<Collaborateur>}
    */
-  verifierAuthentification(): Observable<Collegue> {
-    return this.collegueConnecteSub.getValue().estAnonyme() ?
-            this._http.get<Collegue>(`${environment.baseUrl}${environment.apiAuthMe}`, {withCredentials: true})
+  verifierAuthentification(): Observable<Collaborateur> {
+    return this.collaborateurConnecteSub.getValue().estAnonyme() ?
+            this._http.get<Collaborateur>(`${environment.baseUrl}${environment.apiAuthMe}`, {withCredentials: true})
                   .pipe(
-                    map(colServeur => new Collegue(colServeur)),
-                    tap(col => this.collegueConnecteSub.next(col)),
-                    catchError(err => of(COLLEGUE_ANONYME))
-                  ):     of(this.collegueConnecteSub.getValue())
+                    map(colServeur => new Collaborateur(colServeur)),
+                    tap(col => this.collaborateurConnecteSub.next(col)),
+                    catchError(err => of(COLLABORATEUR_ANONYME))
+                  ):     of(this.collaborateurConnecteSub.getValue())
               ;
   }
 
@@ -68,9 +68,9 @@ export class AuthService {
    *
    * @param {string} email : email de l'utilisateur
    * @param {string} mdp : mot de passe de l'utilisation
-   * @returns {Observable<Collegue>}
+   * @returns {Observable<Collaborateur>}
    */
-  connecter(email:string, mdp:string):Observable<Collegue> {
+  connecter(email:string, mdp:string):Observable<Collaborateur> {
 
     const config = {
       headers: new HttpHeaders({
@@ -80,8 +80,8 @@ export class AuthService {
 
     return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
-        map(colServeur => new Collegue(colServeur)),
-        tap(col => this.collegueConnecteSub.next(col) )
+        map(colServeur => new Collaborateur(colServeur)),
+        tap(col => this.collaborateurConnecteSub.next(col) )
       );
   }
 
@@ -100,9 +100,9 @@ export class AuthService {
       })
     };
 
-    return this._http.post<Collegue>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
+    return this._http.post<Collaborateur>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(
-        tap(col => this.collegueConnecteSub.next(COLLEGUE_ANONYME))
+        tap(col => this.collaborateurConnecteSub.next(COLLABORATEUR_ANONYME))
       );
   }
 }

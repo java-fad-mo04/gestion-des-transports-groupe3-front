@@ -2,9 +2,11 @@
  * Collaborateur utilisateur de l'application.
  */
 export class Collaborateur {
+  id:number;
   nom:string;
   prenom:string;
   email:string;
+  numeroTel:string;
   motDePasse:string;
   roles:string[];
 

@@ -1,0 +1,18 @@
+<div>
+  <h1>Vos annonces</h1>
+</div>
+<div class="text-right">
+  <a href="/collaborateur/annonces/creer">
+    <button class="btn btn-primary">Créer une nouvelle annonce</button>
+  </a>
+</div>
+<br>
+<div>
+  <h2>Annonces en cours</h2>
+</div>
+<app-datatable-lister-annonces [listeAnnonces]=listeAnnoncesEnCours ></app-datatable-lister-annonces>
+<br>
+<div>
+  <h2>Historique</h2>
+</div>
+<app-datatable-lister-annonces [listeAnnonces]=listeAnnoncesPassees ></app-datatable-lister-annonces>

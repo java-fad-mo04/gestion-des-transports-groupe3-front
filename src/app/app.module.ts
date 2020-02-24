@@ -14,6 +14,7 @@ import { CollabMenuComponent } from './collab-menu/collab-menu.component';
 import { CollabReservationsComponent } from './collab-reservations/collab-reservations.component';
 import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.component';
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
+import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
 
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
@@ -35,6 +36,7 @@ const routes: Routes = [
     CollabReservationsComponent,
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
+    DatatableListerAnnoncesComponent,
   ],
   imports: [
     BrowserModule,

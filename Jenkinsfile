@@ -3,7 +3,7 @@ pipeline {
     environment {
         GH_ORG = "java-fad-mo04"
         APP_REPO = "gestion-des-transports-groupe3-front"
-        BACKEND_PROD = "https://transports-back-3.cleverapps.io"
+        BACKEND_PROD = "https://transports-back-3.cleverapps.io/"
     }
     stages {
         stage('install') {

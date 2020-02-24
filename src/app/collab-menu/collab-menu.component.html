@@ -3,7 +3,7 @@
 
   <div class="media">  <!-- Logo -->
     <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="40px" height="40px"
-      class="mr-3" alt="...">
+      class="mr-3" alt="Logo">
     <div class="media-body">
     </div>
      <!-- Button Reservations -->
@@ -14,8 +14,10 @@
      <!-- Button Statistiques -->
     <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/statistiques" aria-selected="false">Statistiques</a>
   </div>
-  <!-- Visu Nom et Prénom Collègue-->
-  Bonjour {{collaborateurConnexion.nom}} {{collaborateurConnexion.prenom}}
-  <!-- Button Se Déconnecter -->
-  <p><button type="text" routerLink="" class="btn btn-primary mb-2">Se Deconnecter</button></p>
+  <div>
+    <!-- Visu Nom et Prénom Collègue-->
+    Bonjour {{collaborateurConnexion.nom | uppercase}} {{collaborateurConnexion.prenom | titlecase}}
+    <!-- Button Se Déconnecter -->
+    <button type="text" routerLink="" class="d-block btn btn-link">Se déconnecter</button>
+  </div>
 </nav>

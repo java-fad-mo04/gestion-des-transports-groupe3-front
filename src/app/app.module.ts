@@ -15,6 +15,7 @@ import { CollabReservationsComponent } from './collab-reservations/collab-reserv
 import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.component';
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
 import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
@@ -49,7 +50,8 @@ const routes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
-  }],
+  },
+  CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

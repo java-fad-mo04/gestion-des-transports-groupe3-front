@@ -1,9 +1,10 @@
 <h1> Vos réservations</h1>
-
+<!-- TEST {{listeAnnonceVm|async|json}} -->
 <div class="row">
   <div class="col-md-9"></div>
   <div class="col-md-3">
-    <button type="button" mdbBtn color="primary" size="sm" class="relative waves-light" mdbWavesEffect>Réserver un
+    <button type="button" routerLink="/collaborateur/propositions/creer" mdbBtn color="primary" size="sm"
+      class="relative waves-light" mdbWavesEffect>Réserver un
       transport</button>
   </div>
 </div>
@@ -17,6 +18,7 @@
         <div class="text-left">Covoiturage</div>
       </h5>
     </div>
+    <!-- Partie Réservation en cours, liste toutes les annonces de covoiturage pour lesquelles le collaborateur a fait une réservation -->
     <div class="container">
       <div id="collapseOne" class="collapse show">
         <div class="card-body">
@@ -24,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col offset-1">
-            <table mdbTable small="true">
+            <table mdbTable small="true" striped="true">
               <thead>
                 <tr>
                   <th scope="col">Date/Heure</th>
@@ -33,14 +35,15 @@
                   <th scope="col"></th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr *ngFor="let item of listeAnnonce">
+                <tr *ngFor="let item of listeReservationCovoiturageEnCours|async">
                   <th scope="row">{{item.dateDepart}}</th>
                   <td>{{item.adresseDepart}}</td>
                   <td>{{item.adresseArrivee}}</td>
                   <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
                       (click)="basicModal.show()" mdbWavesEffect>Détails</button>
-
+                    <!-- partie modale où on affiche les informations détaillées de la réservation -->
                     <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
                       aria-labelledby="myBasicModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -57,7 +60,7 @@
                             <p>Destination :{{item.adresseArrivee}}</p>
                             <p>Date/Heure :{{item.dateDepart}}</p>
                             <p>Véhicule :{{item.marque}}</p>
-                            <p>Chauffeur :</p>
+                            <p>Chauffeur :{{item.collaborateurDetails.prenom}} {{item.collaborateurDetails.nom}}</p>
                           </div>
                           <div class="modal-footer">
                             <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
@@ -73,10 +76,11 @@
           </div>
           <div class="col-1"></div>
         </div>
-        <!-- Partie Historique -->
-<app-collab-table-historique [listeHistorique]='historiqueAnnonce' [chauffeur]='nomChauffeur'></app-collab-table-historique>
-      <div class="card">
+        <!-- Partie Historique, liste toutes les annonces de covoiturage que le collborateur à souscris -->
+        <app-collab-table-historique [listeHistorique]='listeHistoriqueReservationCovoiturage' [chauffeur]='nomChauffeur'>
+        </app-collab-table-historique>
+        <div class="card">
+        </div>
       </div>
     </div>
   </div>
-</div>

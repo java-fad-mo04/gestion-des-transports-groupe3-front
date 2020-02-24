@@ -15,6 +15,7 @@ import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.compo
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
 import { CollabTableHistoriqueComponent } from './collab-table-historique/collab-table-historique.component';
 import { CollabMenuComponent } from './collab-menu/collab-menu.component';
+import { CollabCreerComponent } from './collab-creer/collab-creer.component';
 
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/statistiques', component: CollabStatistiquesComponent }, // créer pour test de liaison entre panneau
+  { path: 'collaborateur/propositions/creer', component: CollabCreerComponent }, // créer pour test de liaison entre panneau
   { path: '', redirectTo: '/tech', pathMatch: 'full' }
 
 ];
@@ -37,7 +39,8 @@ const routes: Routes = [
     CollabReservationsComponent,
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
-    CollabTableHistoriqueComponent
+    CollabTableHistoriqueComponent,
+    CollabCreerComponent
   ],
   imports: [
     BrowserModule,

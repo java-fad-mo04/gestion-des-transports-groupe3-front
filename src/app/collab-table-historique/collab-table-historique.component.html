@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="col offset-1">
-    <table mdbTable #tableEl="mdbTable" small="true">
+    <table mdbTable #tableEl="mdbTable" small="true" striped="true">
       <thead>
         <tr>
           <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
@@ -13,7 +13,7 @@
         </tr>
         </thead>
       <tbody>
-        <tr *ngFor="let ah of elements; let i = index">
+        <tr *ngFor="let ah of elements|async; let i = index">
           <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
             scope="row">{{ah.dateDepart}}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
@@ -39,7 +39,7 @@
                     <p>Destination :{{ah.adresseArrivee}}</p>
                     <p>Date/Heure :{{ah.dateDepart}}</p>
                     <p>Véhicule :{{ah.marque}}</p>
-                    <p>Chauffeur :{{chauffeur}}</p>
+                    <p>Chauffeur :{{ah.collaborateurDetails.prenom}} {{ah.collaborateurDetails.nom}}</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"

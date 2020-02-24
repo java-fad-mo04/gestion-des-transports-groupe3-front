@@ -10,7 +10,7 @@ import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstra
 })
 export class CollabTableHistoriqueComponent implements OnInit, AfterViewInit {
   @Input() listeHistorique: any[];
-@Input() chauffeur:string;
+@Input() chauffeur: string;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   elements: any = [];

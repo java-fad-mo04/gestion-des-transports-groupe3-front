@@ -1,6 +1,6 @@
 <!--{{listeAnnonces | json}}-->
 
-<table mdbTable small="true" class="table table-bordered table-striped border border-dark">
+<table mdbTable small="true" striped="true" border="true" class="table">
   <thead class="thead-light">
     <tr>
       <th scope="col" class="text-center align-middle">Date/Heure de départ</th>
@@ -10,11 +10,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let annonce of listeAnnonces">
-      <td scope="row" class="text-center align-middle">{{annonce.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
+    <tr *ngFor="let annonce of listeAnnonces | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <td class="text-center align-middle">{{annonce.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
       <td class="text-center align-middle">{{annonce.adresseDepart}}</td>
       <td class="text-center align-middle">{{annonce.adresseArrivee}}</td>
       <td class="text-center align-middle">{{annonce.nombreReservationsActives+1}}</td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="listeAnnonces.length"></ngb-pagination>
+      </td>
+    </tr>
+  </tfoot>
 </table>

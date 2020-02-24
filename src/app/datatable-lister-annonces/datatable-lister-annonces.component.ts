@@ -17,6 +17,8 @@ export class DatatableListerAnnoncesComponent implements OnInit {
   previous: any = [];
   headElements = ['Date/Heure de départ', 'Lieu de départ', 'Lieu de destination', 'Nombre de voyageurs'];
   maxVisibleItems = 5;
+  page = 1;
+  pageSize= 5;
 
   constructor(private cdRef: ChangeDetectorRef) { }
 

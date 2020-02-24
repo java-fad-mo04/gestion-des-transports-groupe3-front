@@ -12,8 +12,8 @@ import { DataService } from '../data.service';
 export class CollabReservationsComponent implements OnInit {
 
   headElements = ['Date/Heure', 'Départ', 'Destination', ''];
-  listeReservationCovoiturageEnCours: Observable<any[]>;
-  listeHistoriqueReservationCovoiturage: Observable<any[]>;
+  listeReservationCovoiturageEnCours$: Observable<any[]>;
+  listeHistoriqueReservationCovoiturage$: Observable<any[]>;
 
   constructor(private cdRef: ChangeDetectorRef, private dataService: DataService) { }
 
@@ -21,8 +21,8 @@ export class CollabReservationsComponent implements OnInit {
   matricule = 2;
 
   ngOnInit() {
-    this.listeReservationCovoiturageEnCours = this.dataService.rechercherAnnonceCourante(this.matricule);
-    this.listeHistoriqueReservationCovoiturage = this.dataService.rechercherHistoriqueAnnonce(this.matricule);
+    this.listeReservationCovoiturageEnCours$ = this.dataService.rechercherAnnonceCourante(this.matricule);
+    this.listeHistoriqueReservationCovoiturage$ = this.dataService.rechercherHistoriqueAnnonce(this.matricule);
 
 
   }

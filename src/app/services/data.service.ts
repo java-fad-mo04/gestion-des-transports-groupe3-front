@@ -23,7 +23,7 @@ export class DataService {
     
     let chauffeur:Observable<string[]>
     
-    chauffeur = this.httpClient.get<string[]>(url)
+    chauffeur = this.httpClient.get<string[]>(url + '?matricule=' + matricule + '&nom=' + nom + '&prenom=' + prenom)
     chauffeur.forEach(element => {
       console.log( element)
     });

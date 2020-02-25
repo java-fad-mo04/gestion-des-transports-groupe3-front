@@ -10,7 +10,7 @@ export class Chauffeur {
     public numeroTel?: string,  
     public matricule?: string,
     public numeroPermis?: string,
-    public photoUrl?: string 
+    public urlPhoto?: string 
   ) {
   }
 }

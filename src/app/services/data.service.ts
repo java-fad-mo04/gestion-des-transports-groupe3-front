@@ -6,7 +6,8 @@ import { environment } from '../environments/environment';
 
 
 
-const url = environment.backendUrl + environment.chauffeurUrl;
+const urlRechercher = environment.backendUrl + environment.RechercherchauffeurUrl;
+const urlCreer      = environment.backendUrl + environment.CreerchauffeurUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -17,24 +18,19 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   rechercherChauffeur( matricule : string, nom: string, prenom: string): Observable<string[]> {
-
-    //return this.httpClient.get<string[]>(url + '?matricule=' + matricule + '?nom=' + nom + '?prenom=' + prenom);
-    //return this.httpClient.get<string[]>(url) ;
-    
     let chauffeur:Observable<string[]>
     
-    chauffeur = this.httpClient.get<string[]>(url + '?matricule=' + matricule + '&nom=' + nom + '&prenom=' + prenom)
+    chauffeur = this.httpClient.get<string[]>(urlRechercher + '?matricule=' + matricule + '&nom=' + nom + '&prenom=' + prenom)
     chauffeur.forEach(element => {
       console.log( element)
     });
     
     return chauffeur;
-    
 
   }
 
-  ajouterChauffeur( newChauffeur: Chauffeur): Observable<void> {
-    return this.httpClient.post<void>(url, newChauffeur);
+  ajouterChauffeur( newMatricule: String): Observable<void> {
+    return this.httpClient.post<void>( urlCreer, newMatricule);
   }
 
   

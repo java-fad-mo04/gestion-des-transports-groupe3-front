@@ -25,7 +25,7 @@ export class AdminGererChauffeurComponent implements OnInit {
   }
 
   ajouterChauffeur( matricule: string) {
-    //this.dataService.ajouterChauffeur( new Chauffeur( matricule );
+    this.dataService.ajouterChauffeur( matricule );
 
  }
 

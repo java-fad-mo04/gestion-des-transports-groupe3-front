@@ -10,7 +10,7 @@ export class Chauffeur {
     public numeroTel?: string,  
     public matricule?: string,
     public numeroPermis?: string,
-    public photoUrl?: string = 'c:/old/chauffeur.png'
+    public photoUrl?: string 
   ) {
   }
 }

@@ -6,8 +6,8 @@ import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-chauffeur-gerer',
-  templateUrl: './gerer-chauffeur.html',
-  styleUrls: ['./gerer-chauffeur.css']
+  templateUrl: './admin-gerer-chauffeur.html',
+  styleUrls: ['./admin-gerer-chauffeur.css']
 })
 
 
@@ -25,7 +25,7 @@ export class AdminGererChauffeurComponent implements OnInit {
   }
 
   ajouterChauffeur( matricule: string) {
-    this.dataService.ajouterChauffeur( new Chauffeur( matricule );
+    //this.dataService.ajouterChauffeur( new Chauffeur( matricule );
 
  }
 

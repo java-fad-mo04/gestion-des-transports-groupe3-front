@@ -5,13 +5,13 @@ import { DataService } from '../services/data.service';
 
 
 @Component({
-  selector: 'app-chauffeur-rechercher',
-  templateUrl: './chauffeur-rechercher.html',
-  styleUrls: ['./chauffeur-rechercher.css']
+  selector: 'app-chauffeur-gerer',
+  templateUrl: './gerer-chauffeur.html',
+  styleUrls: ['./gerer-chauffeur.css']
 })
 
 
-export class RechercherChauffeurComponent implements OnInit {
+export class AdminGererChauffeurComponent implements OnInit {
 
 
   listeChauffeurs : Observable<string[]>;
@@ -23,6 +23,12 @@ export class RechercherChauffeurComponent implements OnInit {
      this.listeChauffeurs = this.dataService.rechercherChauffeur( matricule, nom, prenom );
 
   }
+
+  ajouterChauffeur( matricule: string) {
+    this.dataService.ajouterChauffeur( new Chauffeur( matricule );
+
+ }
+
 
   ngOnInit() {
     

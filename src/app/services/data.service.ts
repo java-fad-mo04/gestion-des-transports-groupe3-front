@@ -19,8 +19,11 @@ export class DataService {
 
   rechercherChauffeur( matricule : string, nom: string, prenom: string): Observable<string[]> {
     let chauffeur:Observable<string[]>
-    
-    chauffeur = this.httpClient.get<string[]>(urlRechercher + '?matricule=' + matricule + '&nom=' + nom + '&prenom=' + prenom)
+    let urlGet:string
+
+    urlGet = urlRechercher + '?matricule=' + matricule + '&nom=' + nom + '&prenom=' + prenom
+    console.log( urlGet)
+    chauffeur = this.httpClient.get<string[]>( urlGet)
     chauffeur.forEach(element => {
       console.log( element)
     });
@@ -30,6 +33,7 @@ export class DataService {
   }
 
   ajouterChauffeur( newMatricule: String): Observable<void> {
+    console.log( urlCreer)
     return this.httpClient.post<void>( urlCreer, newMatricule);
   }
 

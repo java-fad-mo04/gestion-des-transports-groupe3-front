@@ -13,15 +13,13 @@ export class DataService {
   constructor(private http: HttpClient) { }
   url_an = 'http://localhost:8080/resa?cid=';
 
-  // dateDeCejour = new Date();
-  // dateTest = this.dateDeCejour.getDate();
 
-  rechercherAnnonceCourante(matricule: number): Observable<any[]> {
-
+  rechercherAnnonceCourante(matricule: number): Observable<ReservationVm[]> {
     return this.http.get<any[]>(this.url_an + matricule);
+
   }
 
-  rechercherHistoriqueAnnonce(matricule: number): Observable<any[]> {
+  rechercherHistoriqueAnnonce(matricule: number): Observable<ReservationVm[]> {
     return this.http.get<any[]>(this.url_an + matricule);
         }
 

@@ -27,7 +27,8 @@ export class CollabTableHistoriqueComponent implements OnInit, AfterViewInit {
     this.mdbTable.setDataSource(this.listeHistorique);
     this.elements = this.mdbTable.getDataSource();
     this.previous = this.mdbTable.getDataSource();
-  }
+
+      }
   ngAfterViewInit(): void {
     this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
     this.mdbTablePagination.calculateFirstItemIndex();

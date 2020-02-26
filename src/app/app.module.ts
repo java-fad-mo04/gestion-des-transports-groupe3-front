@@ -16,6 +16,7 @@ import { CollabAnnoncesComponent } from './collab-annonces/collab-annonces.compo
 import { CollabStatistiquesComponent } from './collab-statistiques/collab-statistiques.component';
 import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CollabProfilComponent } from './collab-profil/collab-profil.component';
 
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
@@ -38,6 +39,7 @@ const routes: Routes = [
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
     DatatableListerAnnoncesComponent,
+    CollabProfilComponent,
   ],
   imports: [
     BrowserModule,

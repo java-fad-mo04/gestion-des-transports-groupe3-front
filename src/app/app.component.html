@@ -12,17 +12,24 @@
 
 <body>
 
-<app-collab-menu></app-collab-menu>
-<!--
+<!-- app-collab-menu></!-->
+
 <div class="jumbotron">
-  <h2 class="h1 h1-responsive">Super Application</h2>
+
+  <div class="text-center">
+
+  <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="90px" height="90px" class="" alt="Logo" class="img-fluid rounded">
+  </div><p></p>
+
+  <h2 class="h4 h4-responsive"><p class="text-center">GDT </p></h2>
+  <h2 class="h4 h4-responsive"><p class="text-center">Gestion du Transport</p></h2>
   <div *ngIf="!(collaborateurConnecte | async).estAnonyme()">
     <span>{{(collaborateurConnecte | async).email}}</span>
     <span>({{(collaborateurConnecte | async).roles}})</span>
     <a class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
   </div>
 
-</div> -->
+</div>
 <router-outlet></router-outlet>
 </body>
 <footer>

@@ -29,28 +29,30 @@ export class AdminGererChauffeurComponent implements OnInit {
 
   }
 
-  /** 
-  ajouterChauffeur( matricule: string) {
-    this.dataService.ajouterChauffeur( matricule);
-
-  }
-  */
 
   ajouterChauffeur(etatForm: NgForm) {
     this.messageErreur     = null;
-    this.messageOk        = null;
+    this.messageOk         = null;
 
     this.dataService.ajouterChauffeur( this.creaChauffeur)
       .subscribe(
         () => {
-          this.messageOk = 'Super !';
+          this.messageOk = 'Création du chauffeur OK';
           etatForm.reset();
         },
         error => {
-          // this.messageErreur = `Le chauffeur n'a pu etre créé !`
-          this.messageErreur = error.messageErreur
-          etatForm.reset();          
-        }
+          console.log( error)
+          console.log( error.status)
+          if( error.status == 200){
+            // Pas d'erreur
+            this.messageOk = 'Création du chauffeur OK';
+            etatForm.reset();
+          }else{
+            // Erreur renvoyée par le back
+            this.messageErreur =  error.error
+            etatForm.reset();        
+            }         
+         }
       );
   }
 

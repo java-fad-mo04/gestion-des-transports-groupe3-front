@@ -27,20 +27,19 @@
         <div class="row">
           <div class="col offset-1">
             <table mdbTable small="true" striped="true">
-              <thead>
-                <tr>
-                  <th scope="col">Date/Heure</th>
-                  <th scope="col">Départ</th>
-                  <th scope="col">Destination</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-<!-- TEST {{listeAnnonceVm|async|json}} -->
+
+                <thead>
+                  <tr>
+                    <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+                    </th>
+                  </tr>
+                  </thead>
+
               <tbody>
-                <tr *ngFor="let item of listeReservationCovoiturageEnCours$|async">
-                  <th scope="row">{{item.dateDepart}}</th>
-                  <td>{{item.adresseDepart}}</td>
-                  <td>{{item.adresseArrivee}}</td>
+                <tr *ngFor="let item of listResaCovEnCours$">
+                  <th scope="row">{{item.annonceDetails.dateDepart}}</th>
+                  <td>{{item.annonceDetails.adresseDepart}}</td>
+                  <td>{{item.annonceDetails.adresseArrivee}}</td>
                   <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
                       (click)="basicModal.show()" mdbWavesEffect>Détails</button>
                     <!-- partie modale où on affiche les informations détaillées de la réservation -->
@@ -56,11 +55,11 @@
                             <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
                           </div>
                           <div class="modal-body">
-                            <p>Départ : {{item.adresseDepart}}</p>
-                            <p>Destination :{{item.adresseArrivee}}</p>
-                            <p>Date/Heure :{{item.dateDepart}}</p>
-                            <p>Véhicule :{{item.marque}}</p>
-                            <p>Chauffeur :{{item.collaborateurDetails.prenom}} {{item.collaborateurDetails.nom}}</p>
+                            <p>Départ : {{item.annonceDetails.adresseDepart}}</p>
+                            <p>Destination :{{item.annonceDetails.adresseArrivee}}</p>
+                            <p>Date/Heure :{{item.annonceDetails.dateDepart}}</p>
+                            <p>Véhicule :{{item.annonceDetails.marque}}</p>
+                            <p>Chauffeur :{{item.annonceDetails.collaborateurDetails.prenom}} {{item.annonceDetails.collaborateurDetails.nom}}</p>
                           </div>
                           <div class="modal-footer">
                             <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
@@ -77,7 +76,7 @@
           <div class="col-1"></div>
         </div>
         <!-- Partie Historique, liste toutes les annonces de covoiturage que le collborateur à souscris -->
-        <app-collab-table-historique [listeHistorique]='listeHistoriqueReservationCovoiturage$'>
+        <app-collab-table-historique [listeHistorique]='listeHistoriqueResaCovoiturage'>
         </app-collab-table-historique>
         <div class="card">
         </div>

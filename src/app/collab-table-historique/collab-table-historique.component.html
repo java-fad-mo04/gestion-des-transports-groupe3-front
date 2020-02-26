@@ -12,14 +12,15 @@
           </th>
         </tr>
         </thead>
+
       <tbody>
         <tr *ngFor="let ah of elements|async; let i = index">
           <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
-            scope="row">{{ah.dateDepart}}</th>
+            scope="row">{{ah.annonceDetails.dateDepart}}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-            {{ah.adresseDepart}}</td>
+            {{ah.annonceDetails.adresseDepart}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-            {{ah.adresseArrivee}}</td>
+            {{ah.annonceDetails.adresseArrivee}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
               (click)="basicModal1.show()" mdbWavesEffect>Détails</button>
 
@@ -35,11 +36,11 @@
                     <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
                   </div>
                   <div class="modal-body">
-                    <p>Départ : {{ah.adresseDepart}}</p>
-                    <p>Destination :{{ah.adresseArrivee}}</p>
-                    <p>Date/Heure :{{ah.dateDepart}}</p>
-                    <p>Véhicule :{{ah.marque}}</p>
-                    <p>Chauffeur :{{ah.collaborateurDetails.prenom}} {{ah.collaborateurDetails.nom}}</p>
+                    <p>Départ : {{ah.annonceDetails.adresseDepart}}</p>
+                    <p>Destination :{{ah.annonceDetails.adresseArrivee}}</p>
+                    <p>Date/Heure :{{ah.annonceDetails.dateDepart}}</p>
+                    <p>Véhicule :{{ah.annonceDetails.marque}}</p>
+                    <p>Chauffeur :{{ah.annonceDetails.collaborateurDetails.prenom}} {{ah.annonceDetails.collaborateurDetails.nom}}</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"

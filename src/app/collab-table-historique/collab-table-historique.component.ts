@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ChangeDetectorRef, ViewChild, AfterViewInit }
 
 import { concat } from 'rxjs/operators';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
+import { ReservationVm } from 'src/domains/reservationVm';
 
 @Component({
   selector: 'app-collab-table-historique',
@@ -9,8 +10,7 @@ import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstra
   styles: []
 })
 export class CollabTableHistoriqueComponent implements OnInit, AfterViewInit {
-  @Input() listeHistorique: any[];
-@Input() chauffeur: string;
+  @Input() listeHistorique: ReservationVm[];
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   elements: any = [];

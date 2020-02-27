@@ -16,7 +16,6 @@ import { CollabStatistiquesComponent } from './collab-statistiques/collab-statis
 import { CollabTableHistoriqueComponent } from './collab-table-historique/collab-table-historique.component';
 import { CollabMenuComponent } from './collab-menu/collab-menu.component';
 import { CollabCreerComponent } from './collab-creer/collab-creer.component';
-import { StatutConnecteService} from "./auth/statut-connecte.service";
 import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
@@ -42,7 +41,7 @@ const routes: Routes = [
   { path: 'admin/vehicules',                  component: AdminGererVehiculesComponent },        // Gérer les véhicules
   { path: 'admin/vehicules/detail',           component: AdminVoirDetailVehiculeComponent },    // Visualiser le détail d'un véhicule les véhicules
   { path: 'admin/vehicules/geolocalisation',  component: AdminGeolocaliserVehiculeComponent },  // Géolocaliser les véhicules
-  { path: 'admin/vehicules/cycle-vie-veh',    component: AdminGererCycleVieVehiculeComponent }, // Gérer le cycle de vie d'un véhicule 
+  { path: 'admin/vehicules/cycle-vie-veh',    component: AdminGererCycleVieVehiculeComponent }, // Gérer le cycle de vie d'un véhicule
   { path: 'chauffeur',                          component: ChauffeurMenuComponent },                      // Menu chauffeur
   { path: 'chauffeur/planning',                 component: ChauffeurVisualiserPlanningComponent },        // Visualiser son planning
   { path: 'chauffeur/occupation',               component: ChauffeurVisualiserOccupationComponent },      // Visualiser son taux d'occupation d
@@ -60,9 +59,9 @@ const routes: Routes = [
     CollabReservationsComponent,
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
-    Collab-lister-reservation-covoiturage,
+    CollabReservationsComponent,
     CollabTableHistoriqueComponent,
-    CollabCreerComponent
+    CollabCreerComponent,
     AdminMenuComponent,
     AdminGererChauffeurComponent,
     AdminGererVehiculesComponent,

@@ -1,21 +1,36 @@
-<nav class="navbar navbar-primary" style="background-color: #e3f2fd;">
-  <!-- Navbar content -->
-
-  <div class="media">  <!-- Logo -->
-    <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="40px" height="40px"
-      class="mr-3" alt="...">
-    <div class="media-body">
-    </div>
-     <!-- Button Reservations -->
-    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/reservations" aria-selected="true" role="tab">Vos
-      réservations</a>
-       <!-- Button Annonces-->
-    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/annonces" aria-selected="false">Vos annonces</a>
-     <!-- Button Statistiques -->
-    <a routerLinkActive="active" class="nav-link" routerLink="/collaborateur/statistiques" aria-selected="false">Statistiques</a>
+<div class="row">
+  <div class="col-10">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 border border-dark rounded">
+      <a class="navbar-brand p-0" href="#">
+        <!-- Logo -->
+        <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="40px" height="40px" class="" alt="Logo" class="img-fluid rounded">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" routerLinkActive="active bg-info">
+            <!-- Button Reservations -->
+            <a class="nav-link" routerLink="/collaborateur/reservations" aria-selected="true" role="tab">Vos
+            réservations</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active bg-info">
+            <!-- Button Annonces-->
+            <a class="nav-link" routerLink="/collaborateur/annonces" aria-selected="false">Vos annonces</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active bg-info">
+            <!-- Button Statistiques -->
+            <a class="nav-link" routerLink="/collaborateur/statistiques" aria-selected="false">Statistiques</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
-  <!-- Visu Nom et Prénom Collègue-->
-  Bonjour {{collaborateurConnexion.nom}} {{collaborateurConnexion.prenom}}
-  <!-- Button Se Déconnecter -->
-  <p><button type="text" routerLink="" class="btn btn-primary mb-2">Se Deconnecter</button></p>
-</nav>
+  <div class="col-2">
+    <!-- Visu Nom et Prénom Collègue-->
+    Bonjour {{collaborateurConnexion.nom | uppercase}} {{collaborateurConnexion.prenom | titlecase}}
+    <!-- Button Se Déconnecter -->
+    <button type="text" routerLink="" class="d-block btn btn-link">Se déconnecter</button>
+  </div>
+</div>

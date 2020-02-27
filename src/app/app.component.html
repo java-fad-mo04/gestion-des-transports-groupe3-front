@@ -12,7 +12,10 @@
 
 <body>
 
-<app-collab-menu></app-collab-menu>
+  <app-admin-menu  *ngIf="(collaborateurConnecte | async).estAdministrateur()"></app-admin-menu>
+  <app-collab-menu *ngIf="(collaborateurConnecte | async).estCollaborateur()"></app-collab-menu>
+  <app-chauffeur-menu  *ngIf="(collaborateurConnecte | async).estChauffeur()"></app-chauffeur-menu>
+
 <!--
 <div class="jumbotron">
   <h2 class="h1 h1-responsive">Super Application</h2>

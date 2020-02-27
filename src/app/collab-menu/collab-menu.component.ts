@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Collaborateur } from '../auth/auth.domains';
-
+import { AuthService } from '../auth/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-collab-menu',
@@ -8,15 +9,15 @@ import { Collaborateur } from '../auth/auth.domains';
    ,
   styles: []
 })
+
 export class CollabMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _cookieService: CookieService) { }
 
-  collaborateurConnexion = new Collaborateur( {nom: 'Victor', prenom: 'Hugo'}); // Création d'un mock de Collaborateur pour affichage
+  collaborateurConnexion: Collaborateur; // Création d'un mock de Collaborateur pour affichage
 
   ngOnInit() {
-
-
+    this.collaborateurConnexion = JSON.parse(this._cookieService.get('col'));
   }
 
 }

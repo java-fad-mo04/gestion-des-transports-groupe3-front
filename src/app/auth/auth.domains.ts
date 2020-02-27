@@ -10,12 +10,13 @@ export class Collaborateur {
   motDePasse:string;
   roles:string[];
 
-  constructor(params:any) {
-    Object.assign(this, params);
-  }
 
-  estAnonyme():boolean {
-    return this.email == undefined;
+  constructor(params: any) {
+    Object.assign(this, params);
+
+  }
+  estAnonyme(): boolean {
+    return this.email === undefined;
   }
 
   /**

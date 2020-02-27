@@ -15,7 +15,7 @@ export class Collaborateur {
   }
 
   estAnonyme():boolean {
-    return this.email == undefined;
+    return this.email === undefined;
   }
 
 }

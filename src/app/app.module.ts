@@ -21,6 +21,8 @@ import { CollabProfilComponent } from './collab-profil/collab-profil.component';
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate:[StatutConnecteService]}, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
+  { path: 'connexion', component: AuthComponent },
+  { path: 'connexion/profil', component: CollabProfilComponent },
   { path: 'collaborateur', component: CollabMenuComponent },
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau

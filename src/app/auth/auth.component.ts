@@ -47,9 +47,12 @@ import {Router} from "@angular/router";
           <div class="text-center">
             <input type="submit" mdbBtn color="primary" sclass="waves-light" mdbWavesEffect value="Se connecter" (click)="connecter()">
           </div>
+
           <div *ngIf="err" class="text-danger">
-            Oops, les informations saisies ne permettent pas de vous authentifier.
+            Vos informations d'authentification sont invalides.
           </div>
+
+          <!-- modal-->
         </form>
       </mdb-card-body>
     </mdb-card>
@@ -72,7 +75,7 @@ export class AuthComponent implements OnInit {
     this._authSrv.connecter(this.collaborateur.email, this.collaborateur.motDePasse)
       .subscribe(
         // en cas de succès, redirection vers la page /tech
-        col => this._router.navigate(['/tech']),
+        col => this._router.navigate(['/collaborateur']),
 
         // en cas d'erreur, affichage d'un message d'erreur
         err =>this.err = true

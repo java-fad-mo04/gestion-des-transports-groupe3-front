@@ -1,26 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { ReservationVm } from 'src/domains/reservationVm';
-import { AnnonceVm } from 'src/domains/annonceVm';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
- /// subjectAnnonce = new Subject<any[]>();
+
   constructor(private http: HttpClient) { }
   url_an = 'http://localhost:8080/resa?cid=';
 
+  /* trouve toutes les annonces sur la BDD relative aux annonces de covoiturage d'un
+  collaborateur  dont le matricule est passé en paramètre */
 
-  rechercherAnnonceCourante(matricule: number): Observable<ReservationVm[]> {
+  rechercherAnnonceCovoiturage(matricule: number): Observable<ReservationVm[]> {
     return this.http.get<any[]>(this.url_an + matricule);
-
   }
-
-  rechercherHistoriqueAnnonce(matricule: number): Observable<ReservationVm[]> {
-    return this.http.get<any[]>(this.url_an + matricule);
-        }
-
 }

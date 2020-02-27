@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, ChangeDetectorRef, ViewChild, AfterViewInit } from '@angular/core';
-
-import { concat } from 'rxjs/operators';
 import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 import { ReservationVm } from 'src/domains/reservationVm';
 

@@ -6,31 +6,32 @@
 <div class="row">
   <div class="col offset-1">
     <table mdbTable #tableEl="mdbTable" small="true" striped="true">
+      <!-- Enête table-->
       <thead>
         <tr>
           <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
           </th>
         </tr>
-        </thead>
-
+      </thead>
       <tbody>
+        <!-- Données de la liste mis en forme par la table paginée -->
         <tr *ngFor="let ah of elements; let i = index">
-          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
-            scope="row">{{ah.annonceDetails.dateDepart}}</th>
+          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">
+            {{ah.annonceDetails.dateDepart}}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
             {{ah.annonceDetails.adresseDepart}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
             {{ah.annonceDetails.adresseArrivee}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
-              (click)="basicModal1.show()" mdbWavesEffect>Détails</button>
-
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"><button
+              type="button" mdbBtn color="primary" size="sm" class="relative waves-light" (click)="basicModal1.show()"
+              mdbWavesEffect>Détails</button>
+            <!-- Partie modale-->
             <div mdbModal #basicModal1="mdbModal" class="modal fade" tabindex="-1" role="dialog"
               aria-labelledby="myBasicModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close pull-right" aria-label="Close"
-                      (click)="basicModal1.hide()">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal1.hide()">
                       <span aria-hidden="true">×</span>
                     </button>
                     <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
@@ -40,9 +41,11 @@
                     <p>Destination :{{ah.annonceDetails.adresseArrivee}}</p>
                     <p>Date/Heure :{{ah.annonceDetails.dateDepart}}</p>
                     <p>Véhicule :{{ah.annonceDetails.marque}}</p>
-                    <p>Chauffeur :{{ah.annonceDetails.collaborateurDetails.prenom}} {{ah.annonceDetails.collaborateurDetails.nom}}</p>
+                    <p>Chauffeur :{{ah.annonceDetails.collaborateurDetails.prenom}}
+                      {{ah.annonceDetails.collaborateurDetails.nom}}</p>
                   </div>
                   <div class="modal-footer">
+                    <!-- Pagination -->
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
                       (click)="basicModal1.hide()" mdbWavesEffect>Fermer</button>
                   </div>
@@ -52,18 +55,16 @@
           </td>
         </tr>
       </tbody>
-      <tfoot class="grey lighten-5 w-100" >
+      <tfoot class="grey lighten-5 w-100">
 
-<tr>
-  <td colspan="4" >
-    <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
-  </td>
-</tr>
-</tfoot>
+        <tr>
+          <td colspan="4">
+            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
   <div class="col-1">
   </div>
 </div>
-
-

@@ -16,4 +16,12 @@ export class Collaborateur {
     return this.email == undefined;
   }
 
+  estAdministrateur():boolean {
+    return true;
+  }
+
+  estCollaborateur():boolean {
+    return false;
+  }
+
 }

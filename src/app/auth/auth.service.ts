@@ -31,9 +31,9 @@ export class AuthService {
    *
    * @type {BehaviorSubject<any>}
    */
-  private collaborateurConnecteSub:BehaviorSubject<Collaborateur> = new BehaviorSubject(COLLABORATEUR_ANONYME);
+  private collaborateurConnecteSub: BehaviorSubject<Collaborateur> = new BehaviorSubject(COLLABORATEUR_ANONYME);
 
-  constructor(private _http:HttpClient, private cookieService:CookieService) {
+  constructor(private _http: HttpClient, private cookieService: CookieService) {
   }
 
   /**
@@ -41,7 +41,7 @@ export class AuthService {
    *
    * @returns {Observable<Collaborateur>}
    */
-  get collaborateurConnecteObs():Observable<Collaborateur> {
+  get collaborateurConnecteObs(): Observable<Collaborateur> {
     return this.collaborateurConnecteSub.asObservable();
   }
 
@@ -59,7 +59,7 @@ export class AuthService {
                     map(colServeur => new Collaborateur(colServeur)),
                     tap(col => this.collaborateurConnecteSub.next(col)),
                     catchError(err => of(COLLABORATEUR_ANONYME))
-                  ):     of(this.collaborateurConnecteSub.getValue())
+                  ) :     of(this.collaborateurConnecteSub.getValue())
               ;
   }
 
@@ -72,7 +72,7 @@ export class AuthService {
    * @param {string} mdp : mot de passe de l'utilisation
    * @returns {Observable<Collaborateur>}
    */
-  connecter(email:string, mdp:string):Observable<Collaborateur> {
+  connecter(email: string, mdp: string): Observable<Collaborateur> {
 
     const config = {
       headers: new HttpHeaders({

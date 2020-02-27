@@ -1,0 +1,20 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>Date / heure de départ</th>
+      <th>Lieu de départ</th>
+      <th>Lieu de destination</th>
+      <th>Nombre de voyageurs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let annonce of annonces">
+      <td>{{ annonce.dateDepart }}</td>
+      <td>{{ annonce.adresseDepart }}</td>
+      <td>{{ annonce.adresseArrivee }}</td>
+      <td>{{ annonce.nombreVoyageurs }}</td>
+    </tr>
+  </tbody>
+  </table>
+
+

@@ -6,6 +6,8 @@ import {Observable} from "rxjs/internal/Observable";
 import {BehaviorSubject} from "rxjs/internal/BehaviorSubject";
 import {Subject, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
+import { CookieService } from 'ngx-cookie-service';
+import { JsonPipe } from '@angular/common';
 
 /**
  * Collaborateur anonyme.
@@ -31,7 +33,7 @@ export class AuthService {
    */
   private collaborateurConnecteSub:BehaviorSubject<Collaborateur> = new BehaviorSubject(COLLABORATEUR_ANONYME);
 
-  constructor(private _http:HttpClient) {
+  constructor(private _http:HttpClient, private cookieService:CookieService) {
   }
 
   /**
@@ -81,7 +83,8 @@ export class AuthService {
     return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
         map(colServeur => new Collaborateur(colServeur)),
-        tap(col => this.collaborateurConnecteSub.next(col) )
+        tap(col => {this.collaborateurConnecteSub.next(col);
+        this.cookieService.set('col', JSON.stringify(col)); } )
       );
   }
 

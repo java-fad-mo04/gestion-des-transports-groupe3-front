@@ -18,5 +18,5 @@
   <h4>Historique</h4>
 </div>
 <div class="m-3">
-  <app-datatable-lister-annonces-pagination [listeAnnonces]=listeAnnoncesPassees ></app-datatable-lister-annonces-pagination>
+  <app-datatable-lister-annonces-pagination *ngIf="listeAnnoncesPassees" [listeAnnonces]=listeAnnoncesPassees ></app-datatable-lister-annonces-pagination>
 </div>

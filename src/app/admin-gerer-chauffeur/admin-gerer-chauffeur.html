@@ -1,0 +1,150 @@
+<div class="row">
+  <div class="col-6">
+    <h1> Gérer les chauffeurs</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <button class="btn btn-primary"
+      (click)="rechercherChauffeur( saisieMatricule.value, saisieNom.value, saisiePrenom.value)">Filtrer par : </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Matricule </label>
+  </div>
+  <div class="col-4">
+    <input type="text" name="matricule" id="matricule" value="" #saisieMatricule><br>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Nom </label>
+  </div>
+  <div class="col-4">
+    <input type="text" name="nom" id="nom" value="" #saisieNom><br>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-2">
+    <label for="nom">Prenom </label>
+  </div>
+
+  <div class="col-6">
+    <input type="text" name="prenom" id="prenom" value="" #saisiePrenom><br>
+  </div>
+
+  <div class="col-4">
+    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+      mdbWavesEffect>Ajouter un chauffeur</button>
+
+    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+      aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">Nouveau chauffeur</h4>
+          </div>
+
+          <div class="modal-body">
+            <!--Formulaire de saisie du chauffeur-->
+            <!-- <input type="text" name="newMatricule" id="newMatricule" value="matricule" #saisieNewMatricule><br> -->
+            <form #etatForm="ngForm">
+
+              <div class="row">
+            
+                <div class="col">
+                  <div class="card ">
+                    <div class="card-body">
+                      <div class="col">
+                        <div class="form-group">
+            
+                          <label for="nom">
+                            Matricule
+                          </label>
+                          <input type="text" id="newMatricule" name="newMatricule" class="form-control" [(ngModel)]="creaChauffeur.matricule" #nomOK="ngModel" required>
+                          <p *ngIf="nomOK.dirty && nomOK.invalid">
+                            Le matricul est obligatoire.
+                          </p>
+            
+            
+                          <div *ngIf="messageErreur" class="alert alert-danger" role="alert">
+                            {{messageErreur}}
+                          </div>
+            
+                          <div *ngIf="messageOk" class="alert alert-success" role="alert">
+                            {{messageOk}}
+                          </div>
+            
+                          <button class="btn btn-primary"  [disabled]="etatForm.invalid" (click)="ajouterChauffeur(etatForm)">Créer</button>
+            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            </form>            
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+              (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row" >
+
+  <div class="col-6" *ngFor="let chauffeur of listeChauffeurs | async">
+    <div class="row border">
+      <p style="padding-left: 10px;padding-top: 10px;"><strong>{{ chauffeur.nom }} {{ chauffeur.prenom }}</strong></p>
+
+    </div>
+
+    <div class="row border" >
+
+      <div class="col-3" >
+        <img [src]="chauffeur.urlPhoto" alt="thumbnail" style="width: 100px;padding-top: 50px;">
+        <!-- <img src="https://www.w3schools.com/bootstrap/img_avatar2.png" alt="thumbnail" style="width: 100px;padding-top: 50px;"> -->
+          
+      </div>
+
+      <div class="col-2" >
+        <p style="color:blue"><strong>Nom</strong></p>
+        <p style="color:blue"><strong>Prénom</strong></p>
+        <p style="color:blue"><strong>Permis</strong></p>
+        <p style="color:blue"><strong>Email</strong></p>
+        <p style="color:blue"><strong>Téléphone</strong></p>
+       </div>
+
+      <div class="col-2">
+        <p><strong>{{ chauffeur.nom}}</strong></p>
+        <p><strong>{{ chauffeur.prenom}}</strong></p>
+        <p><strong>{{ chauffeur.numeroPermis}}</strong></p>
+        <p><strong>{{ chauffeur.email}}</strong></p>
+        <p><strong>{{ chauffeur.numeroTel}}</strong></p>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+</div>

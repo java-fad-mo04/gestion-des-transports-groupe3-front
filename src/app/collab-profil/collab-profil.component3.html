@@ -1,0 +1,45 @@
+<button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>
+  Launch demo modal</button>
+<div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Choisissez votre Profil</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-4">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.5TqwbL35BVezsQJY6BsLpwHaE7&pid=Api" width="200px"
+            height="200px" class="" alt="Logo" class="img-fluid rounded">
+          </div>
+          <div class="col-4">
+          <img src="https://img.chilango.com/2018/06/Captura-de-pantalla-2018-06-25-a-las-12.06.11.png" width="200px"
+            height="200px" class="" alt="Logo" class="img-fluid rounded">
+          </div>
+            <div class="col-4">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.sebQE1oX-52hFGj0ywzCwAHaE6&pid=Api" width="200px"
+            height="100px" class="" alt="Logo" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <a href="/collaborateur/reservations" mdbBtn size="sm" color="primary" mdbWavesEffect>Collaborateur</a>
+      </div>
+        <div class="col-4">
+          <a href="/collaborateur/reservations" mdbBtn size="sm" color="primary" mdbWavesEffect>Chauffeur</a>
+      </div>
+        <div class="col-4">
+          <a href="/collaborateur/reservations" mdbBtn size="sm" color="primary" mdbWavesEffect>Administrateur</a>
+      </div>
+      </div>
+    </div>
+    <div class="modal-footer justify-content-center">
+    </div>
+  </div>
+</div>

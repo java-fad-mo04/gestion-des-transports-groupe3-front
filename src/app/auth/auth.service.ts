@@ -8,6 +8,7 @@ import {Subject, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
 import { CookieService } from 'ngx-cookie-service';
 import { JsonPipe } from '@angular/common';
+import { RoleCollaborateur } from '../models/roleCollaborateur';
 
 /**
  * Collaborateur anonyme.
@@ -88,13 +89,28 @@ export class AuthService {
       );
   }
 
-  /**
+  trouverRole(): RoleCollaborateur {
+
+    const c = new RoleCollaborateur(
+    {id: 1,
+    email: 'admin@dev.fr',
+    nom: 'Admin',
+    prenom: 'DEV',
+    numeroTel: null,
+    roles: ['ROLE_CHAUFFEUR']}
+    );
+
+    return c;
+  }
+
+  /*
    * Déconnexion de l'utilisateur.
    *
    * Le serveur provoque la suppression du cookie AUTH-TOKEN.
    *
    * @returns {Observable<any>}
    */
+
   seDeconnecter() {
 
     const config = {

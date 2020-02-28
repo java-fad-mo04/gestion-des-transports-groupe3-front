@@ -52,7 +52,7 @@ import {Router} from "@angular/router";
             Vos informations d'authentification sont invalides.
           </div>
 
-          <!-- modal-->
+
         </form>
       </mdb-card-body>
     </mdb-card>
@@ -66,7 +66,7 @@ export class AuthComponent implements OnInit {
   collaborateur:Collaborateur = new Collaborateur({});
   err:boolean;
 
-  constructor(private _authSrv:AuthService, private _router:Router) { }
+  constructor(private _authSrv: AuthService, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -74,11 +74,11 @@ export class AuthComponent implements OnInit {
   connecter() {
     this._authSrv.connecter(this.collaborateur.email, this.collaborateur.motDePasse)
       .subscribe(
-        // en cas de succès, redirection vers la page /tech
-        col => this._router.navigate(['/collaborateur/profil']),
+        // en cas de succès, redirection vers la page /connexion/profil
+        col => this._router.navigate(['/connexion/profil']),
 
         // en cas d'erreur, affichage d'un message d'erreur
-        err =>this.err = true
+        err => this.err = true
       );
   }
 

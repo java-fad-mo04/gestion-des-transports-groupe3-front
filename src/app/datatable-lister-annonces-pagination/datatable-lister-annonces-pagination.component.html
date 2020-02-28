@@ -1,0 +1,28 @@
+<div class="container">
+  <!--{{listeAnnonces | json}}-->
+  <table mdbTable #tableEl="mdbTable" small="true" striped="true" border="true" class="table z-depth-1">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" class="text-center align-middle">Date/Heure de départ</th>
+        <th scope="col" class="text-center align-middle">Lieu de départ</th>
+        <th scope="col" class="text-center align-middle">Lieu de destination</th>
+        <th scope="col" class="text-center align-middle">Nombre de voyageurs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of elements; let i = index;">
+        <td class="text-center align-middle" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
+        <td class="text-center align-middle" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.adresseDepart}}</td>
+        <td class="text-center align-middle" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.adresseArrivee}}</td>
+        <td class="text-center align-middle" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.nombreReservationsActives+1}}</td>
+      </tr>
+    </tbody>
+    <tfoot class="grey lighten-5 w-100">
+      <tr>
+        <td colspan="4">
+          <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

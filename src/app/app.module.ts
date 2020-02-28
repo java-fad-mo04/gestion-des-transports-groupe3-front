@@ -18,6 +18,8 @@ import { CollabMenuComponent } from './collab-menu/collab-menu.component';
 import { CollabCreerComponent } from './collab-creer/collab-creer.component';
 import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DatatableListerAnnoncesPaginationComponent } from './datatable-lister-annonces-pagination/datatable-lister-annonces-pagination.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminGererChauffeurComponent } from './admin-gerer-chauffeur/admin-gerer-chauffeur';
 import { AdminGererVehiculesComponent } from './admin-gerer-vehicules/admin-gerer-vehicules.component';
@@ -35,6 +37,7 @@ const routes: Routes = [
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/statistiques', component: CollabStatistiquesComponent }, // créer pour test de liaison entre panneau
+  { path: 'connexion', component: AuthComponent },
   { path: 'collaborateur/propositions/creer', component: CollabCreerComponent }, // créer pour test de liaison entre panneau
   { path: 'admin',                            component: AdminMenuComponent },                  // Menu administrateur
   { path: 'admin/chauffeurs',                 component: AdminGererChauffeurComponent },        // Gérer les chauffeurs
@@ -59,6 +62,8 @@ const routes: Routes = [
     CollabReservationsComponent,
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
+    DatatableListerAnnoncesComponent,
+    DatatableListerAnnoncesPaginationComponent,
     CollabReservationsComponent,
     CollabTableHistoriqueComponent,
     CollabCreerComponent,
@@ -71,15 +76,15 @@ const routes: Routes = [
     ChauffeurVisualiserPlanningComponent,
     ChauffeurVisualiserOccupationComponent,
     ChauffeurMenuComponent
-
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
+    FormsModule,
+    NgxPaginationModule,
     FormsModule
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

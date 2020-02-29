@@ -36,8 +36,8 @@
                   </thead>
               <tbody>
                 <tr *ngFor="let item of listResaCovEnCours$">
-                  <th scope="row">{{item.annonceDetails.dateDepart}}</th>
-                  <td>{{item.annonceDetails.adresseDepart}}</td>
+                  <th scope="row">{{item.annonceDetails.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</th>
+                  <td>{{item.annonceDetails.adresseDepart }}</td>
                   <td>{{item.annonceDetails.adresseArrivee}}</td>
                   <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
                       (click)="basicModal.show()" mdbWavesEffect>Détails</button>
@@ -55,10 +55,10 @@
                           </div>
                           <div class="modal-body">
                             <p>Départ : {{item.annonceDetails.adresseDepart}}</p>
-                            <p>Destination :{{item.annonceDetails.adresseArrivee}}</p>
-                            <p>Date/Heure :{{item.annonceDetails.dateDepart}}</p>
-                            <p>Véhicule :{{item.annonceDetails.marque}}</p>
-                            <p>Chauffeur :{{item.annonceDetails.collaborateurDetails.prenom}} {{item.annonceDetails.collaborateurDetails.nom}}</p>
+                            <p>Destination : {{item.annonceDetails.adresseArrivee}}</p>
+                            <p>Date/Heure : {{item.annonceDetails.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</p>
+                            <p>Véhicule : {{item.annonceDetails.marque}}</p>
+                            <p>Chauffeur : {{item.annonceDetails.collaborateurDetails.prenom}} {{item.annonceDetails.collaborateurDetails.nom}}</p>
                           </div>
                           <div class="modal-footer">
                             <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"

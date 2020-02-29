@@ -1,0 +1,84 @@
+<h1> Vos réservations</h1>
+
+<div class="row">
+  <div class="col-md-9"></div>
+  <div class="col-md-3">
+    <button type="button" routerLink="/collaborateur/propositions/creer" mdbBtn color="primary" size="sm"
+      class="relative waves-light" mdbWavesEffect>Réserver un
+      transport</button>
+  </div>
+</div>
+<div class="row">
+  <p></p>
+</div>
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <div class="text-left">Covoiturage</div>
+      </h5>
+    </div>
+    <!-- Partie Réservation en cours, liste toutes les annonces de covoiturage pour lesquelles le collaborateur a fait une réservation -->
+    <div class="container">
+      <div id="collapseOne" class="collapse show">
+        <div class="card-body">
+          <div class="text-left">Réservation en cours</div>
+        </div>
+        <div class="row">
+          <div class="col offset-1">
+            <table mdbTable small="true" striped="true">
+              <!--Entête Table-->
+                <thead>
+                  <tr>
+                    <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+                    </th>
+                  </tr>
+                  </thead>
+              <tbody>
+                <tr *ngFor="let item of listResaCovEnCours$">
+                  <th scope="row">{{item.annonceDetails.dateDepart}}</th>
+                  <td>{{item.annonceDetails.adresseDepart}}</td>
+                  <td>{{item.annonceDetails.adresseArrivee}}</td>
+                  <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
+                      (click)="basicModal.show()" mdbWavesEffect>Détails</button>
+                    <!-- partie modale où on affiche les informations détaillées de la réservation -->
+                    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+                      aria-labelledby="myBasicModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close"
+                              (click)="basicModal.hide()">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title w-100" id="myModalLabel">Détails du covoiturage</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Départ : {{item.annonceDetails.adresseDepart}}</p>
+                            <p>Destination :{{item.annonceDetails.adresseArrivee}}</p>
+                            <p>Date/Heure :{{item.annonceDetails.dateDepart}}</p>
+                            <p>Véhicule :{{item.annonceDetails.marque}}</p>
+                            <p>Chauffeur :{{item.annonceDetails.collaborateurDetails.prenom}} {{item.annonceDetails.collaborateurDetails.nom}}</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                              (click)="basicModal.hide()" mdbWavesEffect>Fermer</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <!-- Partie Historique, liste toutes les annonces de covoiturage que le collborateur à souscris -->
+        <app-collab-table-historique *ngIf = "listeHistoriqueCov" [listeHistorique]='listeHistoriqueCov'>
+        </app-collab-table-historique>
+        <div class="card">
+        </div>
+      </div>
+    </div>
+  </div>

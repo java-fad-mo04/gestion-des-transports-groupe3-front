@@ -3,6 +3,7 @@
  * Collaborateur utilisateur de l'application.
  */
 export class Collaborateur {
+
   id: number;
   nom: string;
   prenom: string;
@@ -11,23 +12,19 @@ export class Collaborateur {
   motDePasse: string;
   roles: string[];
 
-
   constructor(params: any) {
     Object.assign(this, params);
   }
-
-  /*
+     /*
   Constante de nom de roles */
 
   ADMIN = 'ROLE_ADMINISTRATEUR';
   CHAUFFEUR = 'ROLE_CHAUFFEUR';
   UTILISATEUR = 'ROLE_UTILISATEUR';
-
   estAnonyme(): boolean {
     return this.email === undefined;
   }
-
-  /* Retourne true si le collaborateur est connecté en tant qu'administrateur
+/* Retourne true si le collaborateur est connecté en tant qu'administrateur
    */
 
   estAdministrateur(roles: string[]): boolean {
@@ -41,7 +38,7 @@ console.log(roles.includes(this.ADMIN, 0));
   estCollaborateur(roles: string[]): boolean {
 
       return roles.includes(this.UTILISATEUR, 0);
-  }
+   }
 
   /**
    * Retourne true si le collaborateur est connecté en tant que chauffeur

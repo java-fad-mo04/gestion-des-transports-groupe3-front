@@ -1,20 +1,21 @@
-<!--{{listeAnnonces | json}}-->
-
-<table mdbTable small="true" class="table table-bordered table-striped border border-dark">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col" class="text-center align-middle">Date/Heure de départ</th>
-      <th scope="col" class="text-center align-middle">Lieu de départ</th>
-      <th scope="col" class="text-center align-middle">Lieu de destination</th>
-      <th scope="col" class="text-center align-middle">Nombre de voyageurs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let annonce of listeAnnonces">
-      <td scope="row" class="text-center align-middle">{{annonce.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
-      <td class="text-center align-middle">{{annonce.adresseDepart}}</td>
-      <td class="text-center align-middle">{{annonce.adresseArrivee}}</td>
-      <td class="text-center align-middle">{{annonce.nombreReservationsActives+1}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <!--{{listeAnnonces | json}}-->
+  <table mdbTable small="true" striped="true" border="true" class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" class="text-center align-middle">Date/Heure de départ</th>
+        <th scope="col" class="text-center align-middle">Lieu de départ</th>
+        <th scope="col" class="text-center align-middle">Lieu de destination</th>
+        <th scope="col" class="text-center align-middle">Nombre de voyageurs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let annonce of listeAnnonces;">
+        <td class="text-center align-middle">{{annonce.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
+        <td class="text-center align-middle">{{annonce.adresseDepart}}</td>
+        <td class="text-center align-middle">{{annonce.adresseArrivee}}</td>
+        <td class="text-center align-middle">{{annonce.nombreReservationsActives+1}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

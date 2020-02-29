@@ -116,7 +116,8 @@ export class AuthService {
 
     return this._http.post<Collaborateur>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(
-        tap(col => this.collaborateurConnecteSub.next(COLLABORATEUR_ANONYME))
+        tap(col => {this.collaborateurConnecteSub.next(COLLABORATEUR_ANONYME);
+        this.cookieService.set('col', JSON.stringify(col));})
       );
   }
 }

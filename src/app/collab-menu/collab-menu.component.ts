@@ -12,12 +12,16 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class CollabMenuComponent implements OnInit {
 
-  constructor(private _cookieService: CookieService) { }
+  constructor(private _cookieService: CookieService, private _authService: AuthService) { }
 
   collaborateurConnexion: Collaborateur; // Création d'un mock de Collaborateur pour affichage
 
   ngOnInit() {
     this.collaborateurConnexion = JSON.parse(this._cookieService.get('col'));
+  }
+
+  seDeconnecter(){
+    this._authService.seDeconnecter();
   }
 
 }

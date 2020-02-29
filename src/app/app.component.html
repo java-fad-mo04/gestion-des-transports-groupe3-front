@@ -10,7 +10,8 @@
 </nav>
 
 <body>
-  <!-- Sélectionne le menu entête jumbotron  seilement pour les pages de profil et de connexion -->
+
+  <!-- Sélectionne le menu entête jumbotron  seulement pour les pages de profil et de connexion -->
   <div *ngIf="afficherEntete()" class="jumbotron">
     <div class="text-center">
       <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="90px" height="90px"
@@ -28,6 +29,15 @@
         <a class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
       </div>
     </div>
+
+    <!-- voir si a intégrer ici
+  <app-admin-menu  *ngIf="(collaborateurConnecte | async).estAdministrateur()"></app-admin-menu>
+  <app-collab-menu *ngIf="(collaborateurConnecte | async).estCollaborateur()"></app-collab-menu>
+  <app-chauffeur-menu  *ngIf="(collaborateurConnecte | async).estChauffeur()"></app-chauffeur-menu >
+-->
+
+
+
   </div>
   <!-- Sélectionne le menu si en dehors des pages de profil et de connexion -->
   <app-collab-menu *ngIf="afficherMenu()"></app-collab-menu>

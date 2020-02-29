@@ -18,6 +18,7 @@ import { CollabMenuComponent } from './collab-menu/collab-menu.component';
 import { CollabCreerComponent } from './collab-creer/collab-creer.component';
 import { DatatableListerAnnoncesComponent } from './datatable-lister-annonces/datatable-lister-annonces.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CollabProfilComponent } from './collab-profil/collab-profil.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatatableListerAnnoncesPaginationComponent } from './datatable-lister-annonces-pagination/datatable-lister-annonces-pagination.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
@@ -30,9 +31,12 @@ import { ChauffeurMenuComponent } from './chauffeur-menu/chauffeur-menu.componen
 import { ChauffeurVisualiserPlanningComponent } from './chauffeur-visualiser-planning/chauffeur-visualiser-planning.component';
 import { ChauffeurVisualiserOccupationComponent } from './chauffeur-visualiser-occupation/chauffeur-visualiser-occupation.component';
 
+
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
+  { path: 'connexion', component: AuthComponent },
+  { path: 'connexion/profil', component: CollabProfilComponent },
   { path: 'collaborateur', component: CollabMenuComponent },
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
@@ -63,6 +67,7 @@ const routes: Routes = [
     CollabAnnoncesComponent,
     CollabStatistiquesComponent,
     DatatableListerAnnoncesComponent,
+    CollabProfilComponent,
     DatatableListerAnnoncesPaginationComponent,
     CollabReservationsComponent,
     CollabTableHistoriqueComponent,
@@ -76,6 +81,7 @@ const routes: Routes = [
     ChauffeurVisualiserPlanningComponent,
     ChauffeurVisualiserOccupationComponent,
     ChauffeurMenuComponent
+
   ],
   imports: [
     BrowserModule,

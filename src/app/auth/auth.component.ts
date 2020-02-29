@@ -34,14 +34,12 @@ import {Router} from "@angular/router";
         <form>
           <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" [validateSuccess]="false" data-error="Une adresse email est requise" id="defaultForm-email" class="form-control" name="email" mdbInputDirective [(ngModel)]="collaborateur.email" required>
-            <label for="defaultForm-email">Email</label>
+            <input type="text" [validateSuccess]="false" placeholder="Email" aria-label="Email" data-error="Une adresse email est requise" id="defaultForm-email" class="form-control" name="email" mdbInputDirective [(ngModel)]="collaborateur.email" required>
           </div>
 
           <div class="md-form">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" [validateSuccess]="false"  data-error="Un mot de passe est requis" name="motDePasse" class="form-control" mdbInputDirective [(ngModel)]="collaborateur.motDePasse" required>
-            <label for="defaultForm-pass">Mot de passe</label>
+            <input type="password" id="defaultForm-pass" placeholder="Mot de Passe" aria-label="Mot de Passe"[validateSuccess]="false"  data-error="Un mot de passe est requis" name="motDePasse" class="form-control" mdbInputDirective [(ngModel)]="collaborateur.motDePasse" required>
           </div>
 
           <div class="text-center">

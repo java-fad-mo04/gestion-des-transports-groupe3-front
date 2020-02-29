@@ -1,4 +1,3 @@
-import { ok } from "assert";
 
 /**
  * Collaborateur utilisateur de l'application.
@@ -13,10 +12,13 @@ export class Collaborateur {
   roles: string[];
 
 
-
   constructor(params: any) {
     Object.assign(this, params);
   }
+
+  /*
+  Constante de nom de roles */
+
   ADMIN = 'ROLE_ADMINISTRATEUR';
   CHAUFFEUR = 'ROLE_CHAUFFEUR';
   UTILISATEUR = 'ROLE_UTILISATEUR';
@@ -28,46 +30,26 @@ export class Collaborateur {
   /* Retourne true si le collaborateur est connecté en tant qu'administrateur
    */
 
-  estAdministrateur(): boolean {
-
-     let oK = false;
-     let str: string;
-     for (str in  this.roles) {
-       if (str === this.ADMIN) {
-         oK = true;
-       }
-     }
-    return oK;
+  estAdministrateur(roles: string[]): boolean {
+console.log(roles.includes(this.ADMIN, 0));
+    return roles.includes(this.ADMIN, 0);
   }
 
   /* Retourne true si le collaborateur est connecté en tant que collaborateur
   */
 
- estCollaborateur(): boolean {
-  let oK = false;
-  let str: string;
-  for (str in  this.roles) {
-    if (str === this.UTILISATEUR) {
-      oK = true;
-    }
+  estCollaborateur(roles: string[]): boolean {
+
+      return roles.includes(this.UTILISATEUR, 0);
   }
- return oK;
-}
 
- /**
-  * Retourne true si le collaborateur est connecté en tant que chauffeur
-  */
+  /**
+   * Retourne true si le collaborateur est connecté en tant que chauffeur
+   */
 
- estChauffeur(): boolean {
-  let oK = false;
-  let str: string;
-  for (str in  this.roles) {
-    if (str === this.CHAUFFEUR) {
-      oK = true;
-    }
+  estChauffeur(roles: string[]): boolean {
+
+    return roles.includes(this.CHAUFFEUR, 0);
   }
- return oK;
 }
 
-
-}

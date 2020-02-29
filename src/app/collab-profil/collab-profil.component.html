@@ -1,8 +1,8 @@
 
 <div [ngSwitch]="case">  
-  <p *ngSwitchCase="0"><app-collab-menu></app-collab-menu>
-  </p>  
-     <p *ngSwitchCase="1">  
+
+     <div *ngSwitchCase="1">  <!-- Cas  chauffeur -->
+
 <mdb-card>
   <!--Title-->
   <mdb-card-title>
@@ -16,32 +16,32 @@
       <div class="col">
 
         <img src="https://tse1.mm.bing.net/th?id=OIP.5TqwbL35BVezsQJY6BsLpwHaE7&pid=Api" width="200px" height="200px"
-          class="" alt="Logo" class="img-fluid rounded">
+           alt="Logo" class="img-fluid rounded">
       </div>
       <div class="col">
         <img src="https://img.chilango.com/2018/06/Captura-de-pantalla-2018-06-25-a-las-12.06.11.png" width="200px"
-          height="200px" class="" alt="Logo" class="img-fluid rounded">
+          height="200px" alt="Logo" class="img-fluid rounded">
       </div>
 
     </div>
-    <!--Card content-->
+    <!--Card content   envoie vers module chauffeur ou utilisateur-->
     <mdb-card-body>
       <div class="row">
         <div class="col-1"></div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn size="lg" color="primary" mdbWavesEffect>Collaborateur </a>
+          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
         </div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn  size="lg" color="primary" mdbWavesEffect>Chauffeur    </a>
+          <a href="/chauffeur/" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
         </div>
 
       </div>
        </mdb-card-body>
   </div>
-</mdb-card></p>
+</mdb-card></div>
 
 
-     <p *ngSwitchCase="2">
+     <div *ngSwitchCase="2">  <!-- Cas  Administrateur -->
      <mdb-card>
   <!--Title-->
   <mdb-card-title>
@@ -55,37 +55,36 @@
       <div class="col">
 
         <img src="https://tse1.mm.bing.net/th?id=OIP.5TqwbL35BVezsQJY6BsLpwHaE7&pid=Api" width="200px" height="200px"
-          class="" alt="Logo" class="img-fluid rounded">
+         alt="Logo" class="img-fluid rounded">
       </div>
       <div class="col">
         <img src="https://img.chilango.com/2018/06/Captura-de-pantalla-2018-06-25-a-las-12.06.11.png" width="200px"
-          height="200px" class="" alt="Logo" class="img-fluid rounded">
+          height="200px" style="object-fit: fill;" alt="Logo" class="img-fluid rounded">
       </div>
       <div class="col">
         <img src="https://tse3.mm.bing.net/th?id=OIP.sebQE1oX-52hFGj0ywzCwAHaE6&pid=Api" width="200px" height="100px"
-          class="" alt="Logo" class="img-fluid rounded">
+           alt="Logo" class="img-fluid rounded">
       </div>
     </div>
-    <!--Card content-->
+
+    <!--Card content   envoie vers module Administrateur ou chauffeur ou utilisateur-->
     <mdb-card-body>
       <div class="row">
         <div class="col-1"></div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn size="lg" color="primary" mdbWavesEffect>Collaborateur </a>
+          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
         </div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn  size="lg" color="primary" mdbWavesEffect>Chauffeur    </a>
+          <a href="/chauffeur/" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
         </div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn  size="lg" color="primary" mdbWavesEffect>Administrateur</a>
+          <a href="/administrateur/" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Administrateur</a>
         </div>
       </div>
        </mdb-card-body>
   </div>
-</mdb-card></p>
-
-
-     <p *ngSwitchDefault></p>
+</mdb-card></div>
+     <p *ngSwitchDefault> Vos roles ne sont pas adaptés</p>
     </div>
 
 

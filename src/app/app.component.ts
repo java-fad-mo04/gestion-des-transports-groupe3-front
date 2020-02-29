@@ -25,10 +25,29 @@ export class AppComponent implements OnInit {
    */
   seDeconnecter() {
     this._authSrv.seDeconnecter().subscribe(
-      () => this._router.navigate(['/auth'])
+      () => this._router.navigate(['/connexion'])
     );
   }
 
+  /* Permet d'afficher le menu entête avec nom de l'application et logo
+  * est sélectionné en fonction des pages
+  */
+  afficherEntete(): boolean {
+
+    if ((this._router.url === '/connexion/profil')  ||
+    (this._router.url === '/auth') ||
+    (this._router.url === '/connexion') ||
+    (this._router.url === '/tech')) {
+
+      return true;
+
+    } else {
+      return false; }
+   }
+
+   /* Permet d'afficher le menu selection des annonces, des réservations et des statisitques
+  * est sélectionné pour être visible en dehors des pages de connexion
+  */
   afficherMenu(): boolean {
 
     if ((this._router.url === '/connexion/profil') ||
@@ -37,26 +56,16 @@ export class AppComponent implements OnInit {
     (this._router.url === '/tech')) {
       return false;
     } else {
-      return true;}
+      return true; }
   }
+
   /**
    * A l'initialisation, le composant s'abonne au flux du collaborateur courant connecté.
    *
    * Celui lui permet de rester à jour en fonction des connexions et déconnexions.
    */
 
-   afficherEntete(): boolean {
 
-    if ((this._router.url === '/connexion/profil') ||
-    (this._router.url === '/auth') ||
-    (this._router.url === '/connexion') ||
-    (this._router.url === '/tech')) {
-
-      return true;
-
-    } else {
-      return false;}
-   }
   ngOnInit(): void {
 
     this.collaborateurConnecte = this._authSrv.collaborateurConnecteObs;

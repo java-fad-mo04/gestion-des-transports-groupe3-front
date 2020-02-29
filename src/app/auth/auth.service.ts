@@ -4,11 +4,9 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs/internal/Observable";
 import {BehaviorSubject} from "rxjs/internal/BehaviorSubject";
-import {Subject, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
 import { CookieService } from 'ngx-cookie-service';
-import { JsonPipe } from '@angular/common';
-import { RoleCollaborateur } from '../models/roleCollaborateur';
+import { of } from 'rxjs';
 
 /**
  * Collaborateur anonyme.
@@ -89,19 +87,16 @@ export class AuthService {
       );
   }
 
-  trouverRole(): RoleCollaborateur {
+  /* Permet de sélectionner les roles du Collaborateur
+  * qui se connecte
+  */
 
-    const c = new RoleCollaborateur(
-    {id: 1,
-    email: 'admin@dev.fr',
-    nom: 'Admin',
-    prenom: 'DEV',
-    numeroTel: null,
-    roles: ['ROLE_CHAUFFEUR']}
-    );
+  trouverRole(): string [] {
 
-    return c;
-  }
+  const c: Collaborateur = JSON.parse(this.cookieService.get('col'));
+  return c.roles;
+
+}
 
   /*
    * Déconnexion de l'utilisateur.

@@ -1,0 +1,97 @@
+
+<div [ngSwitch]="case">  
+
+     <div *ngSwitchCase="1">  <!-- Cas  chauffeur -->
+
+<mdb-card>
+  <!--Title-->
+  <mdb-card-title>
+    <h4>Choisissez votre profil</h4>
+  </mdb-card-title>
+
+  <!--Card image-->
+  <div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col">
+
+        <img src="https://tse1.mm.bing.net/th?id=OIP.5TqwbL35BVezsQJY6BsLpwHaE7&pid=Api" width="200px" height="200px"
+           alt="Logo" class="img-fluid rounded">
+      </div>
+      <div class="col">
+        <img src="https://img.chilango.com/2018/06/Captura-de-pantalla-2018-06-25-a-las-12.06.11.png" width="200px"
+          height="200px" alt="Logo" class="img-fluid rounded">
+      </div>
+
+    </div>
+    <!--Card content   envoie vers module chauffeur ou utilisateur-->
+    <mdb-card-body>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
+        </div>
+        <div class="col">
+          <a href="/admin/chauffeur" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
+        </div>
+
+      </div>
+       </mdb-card-body>
+  </div>
+</mdb-card></div>
+
+
+     <div *ngSwitchCase="2">  <!-- Cas  Administrateur -->
+     <mdb-card>
+  <!--Title-->
+  <mdb-card-title>
+    <h4>Choisissez votre profil</h4>
+  </mdb-card-title>
+
+  <!--Card image-->
+  <div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col">
+
+        <img src="https://tse1.mm.bing.net/th?id=OIP.5TqwbL35BVezsQJY6BsLpwHaE7&pid=Api" width="200px" height="200px"
+         alt="Logo" class="img-fluid rounded">
+      </div>
+      <div class="col">
+        <img src="https://img.chilango.com/2018/06/Captura-de-pantalla-2018-06-25-a-las-12.06.11.png" width="200px"
+          height="200px" style="object-fit: fill;" alt="Logo" class="img-fluid rounded">
+      </div>
+      <div class="col">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.sebQE1oX-52hFGj0ywzCwAHaE6&pid=Api" width="200px" height="100px"
+           alt="Logo" class="img-fluid rounded">
+      </div>
+    </div>
+
+    <!--Card content   envoie vers module Administrateur ou chauffeur ou utilisateur-->
+    <mdb-card-body>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
+        </div>
+        <div class="col">
+          <a href="/admin/chauffeur" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
+        </div>
+        <div class="col">
+          <a href="/administrateur/" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Administrateur</a>
+        </div>
+      </div>
+       </mdb-card-body>
+  </div>
+</mdb-card></div>
+     <p *ngSwitchDefault> Vos roles ne sont pas adaptés</p>
+    </div>
+
+
+
+
+
+
+
+
+

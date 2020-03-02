@@ -1,0 +1,26 @@
+<!-- Menu Navigation Chauffeur -->
+<nav class="navbar navbar-primary" style="background-color: #e3f2fd;">
+
+    <div class="media">
+      <!-- Logo -->
+      <img src="https://www.houston-macdougal.com/wp-content/uploads/2013/02/conduire.png" width="40px" height="40px"
+        class="mr-3" alt="...">
+  
+      <div class="media-body">
+      </div>
+  
+      <!-- Lien vers planning du chauffeur-->
+      <a routerLinkActive="active" class="nav-link" routerLink="/chauffeur/planning" aria-selected="true" role="tab">Planning</a>
+  
+      <!-- Lien vers taux occupation du planning du chauffeur-->
+      <a routerLinkActive="active" class="nav-link" routerLink="/chauffeur/occupation" aria-selected="false">Occupation</a>
+  
+    </div>
+  
+    <!-- Visu chauffeur connecté -->
+    Bonjour {{collaborateurConnexion.prenom}} {{collaborateurConnexion.nom}}
+  
+    <!--Lien Se Déconnecter -->
+    <p><button type="text" routerLink="" class="btn btn-primary mb-2">Se Deconnecter</button></p>
+  
+  </nav>

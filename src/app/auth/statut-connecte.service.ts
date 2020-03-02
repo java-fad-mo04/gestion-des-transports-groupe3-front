@@ -17,13 +17,13 @@ export class StatutConnecteService implements CanActivate{
   constructor(private _authSrv:AuthService, private _router:Router) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this._authSrv.verifierAuthentification()
       .pipe(
         map(col => !col.estAnonyme()),
         tap(estConnecte => {
           if(!estConnecte) {
-            this._router.navigate(['/auth'])
+            this._router.navigate(['/connexion'])
           }
         })
       );

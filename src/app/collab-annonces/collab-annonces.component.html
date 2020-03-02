@@ -1,0 +1,22 @@
+<div>
+  <h1>Vos annonces</h1>
+</div>
+<div class="text-right">
+  <a href="/collaborateur/annonces/creer">
+    <button class="btn btn-primary">Créer une nouvelle annonce</button>
+  </a>
+</div>
+<br>
+<div>
+  <h4>Annonces en cours</h4>
+</div>
+<div class="m-3">
+  <app-datatable-lister-annonces [listeAnnonces]=listeAnnoncesEnCours ></app-datatable-lister-annonces>
+</div>
+<br>
+<div>
+  <h4>Historique</h4>
+</div>
+<div class="m-3">
+  <app-datatable-lister-annonces-pagination *ngIf="listeAnnoncesPassees" [listeAnnonces]=listeAnnoncesPassees ></app-datatable-lister-annonces-pagination>
+</div>

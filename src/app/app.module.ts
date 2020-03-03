@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'admin/vehicules/cycle-vie-veh',    component: AdminGererCycleVieVehiculeComponent }, // Gérer le cycle de vie d'un véhicule
   { path: 'chauffeur',                          component: ChauffeurMenuComponent },                      // Menu chauffeur
   { path: 'chauffeur/planning',                 component: ChauffeurVisualiserPlanningComponent },        // Visualiser son planning
-  { path: 'chauffeur/occupation',               component: ChauffeurVisualiserOccupationComponent },      // Visualiser son taux d'occupation d
+  { path: 'chauffeur/occupation',               component: ChauffeurVisualiserOccupationComponent },      // Visualiser son taux d'occupation
   { path: '', redirectTo: '/tech', pathMatch: 'full' },
   {path:'collaborateur/annonces/creer',component:PublierAnnonceComponent}
 

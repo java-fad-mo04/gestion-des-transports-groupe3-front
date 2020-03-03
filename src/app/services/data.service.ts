@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Chauffeur } from '../models/Chauffeur';
+import { Annonce } from '../models/Annonce';
 import { Observable, Subject } from 'rxjs';
 import { environment } from '../environments/environment';
 
@@ -9,6 +10,7 @@ import { environment } from '../environments/environment';
 
 const urlRechercher = environment.backendUrl + environment.RechercherchauffeurUrl;
 const urlCreer = environment.backendUrl + environment.CreerchauffeurUrl;
+const urlAnnonces =  environment.backendUrl + "annonces";
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +44,10 @@ export class DataService {
 
   }
 
-  createAnnonce(){
-
+  createAnnonce(newAnnonces: Annonce): Observable<String>{
+    console.log( urlAnnonces)
+    console.log( newAnnonces)
+    return this.httpClient.post<String>(urlAnnonces, newAnnonces);
   }
 
 

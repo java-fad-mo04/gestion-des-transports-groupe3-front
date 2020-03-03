@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <a href="*"> Retour à la liste</a>
+    <a href="/collaborateur/annonces"> Retour à la liste</a>
   </div>
 </div>
 <div class="container">
@@ -27,7 +27,7 @@
         <label for="adDepart">
           Adresse de départ *
         </label>
-        <input type="text" ngModel id="adDepart"  name="adDepart" class="form-control" #adDepartOk="ngModel" required >
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.adresseDepart" id="adDepart"  name="adDepart" class="form-control" #adDepartOk="ngModel" required >
         <p *ngIf="(adDepartOk.dirty || adDepartOk.touched) && adDepartOk.invalid">
           L'adresse de depart est obligatoire.
         </p>
@@ -37,7 +37,7 @@
         <label for="adDestination">
           Adresse de destination *
         </label>
-        <input type="text" ngModel id="adDestination" name="adDestination" class="form-control" #adDestiOk="ngModel" required>
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.adresseArrivee" id="adDestination" name="adDestination" class="form-control" #adDestiOk="ngModel" required>
         <p *ngIf="(adDestiOk.dirty || adDestiOk.touched) && adDestiOk.invalid">
           L'adresse de destination est obligatoire.
         </p>
@@ -71,7 +71,7 @@
         <label for="immatriculation">
           Immatriculation *
         </label>
-        <input type="text" ngModel id="immatriculation" name="immatriculation" class="form-control" #immaOK="ngModel" required>
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.immatriculation" id="immatriculation" name="immatriculation" class="form-control" #immaOK="ngModel" required>
         <p *ngIf="(immaOK.dirty || immaOK.touched) && immaOK.invalid">
           le matricule est obligatoire.
         </p>
@@ -81,7 +81,7 @@
         <label for="marque">
           Marque *
         </label>
-        <input type="text" ngModel id="marque" name="marque" class="form-control" #marqueOK="ngModel" required>
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.marque" id="marque" name="marque" class="form-control" #marqueOK="ngModel" required>
         <p *ngIf="(marqueOK.dirty || marqueOK.touched) && marqueOK.invalid">
           la marque est obligatoire.
         </p>
@@ -91,7 +91,7 @@
         <label for="modele">
           Modèle *
         </label>
-        <input type="text" ngModel id="modele" name="modele" class="form-control" #modeleOK="ngModel" required>
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.modele" id="modele" name="modele" class="form-control" #modeleOK="ngModel" required>
         <p *ngIf="(modeleOK.dirty || modeleOK.touched) && modeleOK.invalid">
           la modele est obligatoire.
         </p>
@@ -101,9 +101,12 @@
         <label for="place">
           Nombre de places disponibles*
         </label>
-        <input type="text" ngModel id="place" name="place" class="form-control" #placeOK="ngModel" required>
+        <input type="text" ngModel [(ngModel)]="creaAnnonce.nombrePlacesDispo" id="place" name="place" class="form-control" #placeOK="ngModel" required>
         <p *ngIf="(placeOK.dirty || placeOK.touched) && placeOK.invalid">
           le nombre de place est obligatoire.
+        </p>
+        <p *ngIf="placeOK.value>20 || placeOK.value<1">
+          le nombre de place doit etre compris entre 1 et 19
         </p>
       </div>
 
@@ -125,14 +128,14 @@
         <label for="dateDepart">
           Date / heure *
         </label>
-        <input type="date" ngModel id="dateDepart" name="dateDepart" class="form-control" #dateDepartOK="ngModel" required>
+        <input type="date" ngModel   id="dateDepart" name="dateDepart" class="form-control" #dateDepartOK="ngModel" required>
         <p *ngIf="(dateDepartOK.dirty || dateDepartOK.touched) && dateDepartOK.invalid">
           la date est obligatoire.
         </p>
         <label for="heureDepart">
           :
         </label>
-        <select  ngModel id="heureDepart" name="heureDepart" class="form-control" #hDepartOK="ngModel" required>
+        <select  ngModel  id="heureDepart" name="heureDepart" class="form-control" #hDepartOK="ngModel" required>
           <option value="0">00
           <option value="1">01
           <option value="2">02
@@ -164,7 +167,7 @@
         <label for="MinuteDepart">
           H
         </label>
-        <select  ngModel id="MinuteDepart" name="MinuteDepart" class="form-control" #mDepartOK="ngModel" required>
+        <select  ngModel  id="MinuteDepart" name="MinuteDepart" class="form-control" #mDepartOK="ngModel" required>
           <option value="00">00
           <option value="10">10
           <option value="20">20
@@ -183,7 +186,7 @@
     <div class="row">
         <div class="col">
           <button class="btn btn-dark " (click)="basicModal.show()"
-          [disabled]="placeOK.invalid && marqueOK.invalid && modeleOK.invalid && immaOK.invalid && adDestiOk.invalid && adDepartOk.invalid && mDepartOK.invalid && hDepartOK.invalid && dateDepartOK.invalid">
+          [disabled]="placeOK.invalid || marqueOK.invalid || modeleOK.invalid || immaOK.invalid || adDestiOk.invalid || adDepartOk.invalid && mDepartOK.invalid && hDepartOK.invalid && dateDepartOK.invalid">
           Publier</button>
         </div>
     </div>
@@ -209,6 +212,6 @@
   <div class="modal-footer">
     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
     (click)="basicModal.hide()" mdbWavesEffect>Annuler</button>
-    <button class="btn btn-dark " (click)="creerReservation()" (click)="basicModal.hide()" > Confirmer</button>
+    <button class="btn btn-dark " (click)="creerReservation(userForm)" (click)="basicModal.hide()" > Confirmer</button>
   </div>
 </div>

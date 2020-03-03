@@ -37,7 +37,7 @@
               <tbody>
                 <tr *ngFor="let item of listResaCovEnCours$">
                   <th scope="row">{{item.annonceDetails.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</th>
-                  <td>{{item.annonceDetails.adresseDepart }}</td>
+                  <td>{{item.annonceDetails.adresseDepart}}</td>
                   <td>{{item.annonceDetails.adresseArrivee}}</td>
                   <td><button type="button" mdbBtn color="primary" size="sm" class="relative waves-light"
                       (click)="basicModal.show()" mdbWavesEffect>Détails</button>

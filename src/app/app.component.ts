@@ -53,7 +53,8 @@ export class AppComponent implements OnInit {
     if ((this._router.url === '/connexion/profil') ||
     (this._router.url === '/auth') ||
     (this._router.url === '/connexion') ||
-    (this._router.url === '/tech')) {
+    (this._router.url === '/tech')
+    ) {
       return false;
     } else {
       return true; }

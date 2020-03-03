@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Chauffeur } from '../models/Chauffeur';
+import { Annonce } from '../models/Annonce';
 import { Observable, Subject } from 'rxjs';
 import { environment } from '../environments/environment';
-import { Annonce } from '../models/Annonce';
 import { tap } from 'rxjs/operators';
 
 const urlRechercher = environment.backendUrl + environment.RechercherchauffeurUrl;
 const urlCreer = environment.backendUrl + environment.CreerchauffeurUrl;
+const urlAnnonces =  environment.backendUrl + "annonces";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +17,8 @@ const urlCreer = environment.backendUrl + environment.CreerchauffeurUrl;
 
 export class DataService {
 
-  // création du bus d'événement
-  subjectListeAnnonces = new Subject<Annonce[]>();
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
 
   rechercherChauffeur(matricule: string, nom: string, prenom: string): Observable<string[]> {
     let chauffeur: Observable<string[]>;
@@ -44,6 +43,12 @@ export class DataService {
 
   }
 
+  createAnnonce(newAnnonces: Annonce): Observable<String>{
+    console.log( urlAnnonces)
+    console.log( newAnnonces)
+    return this.httpClient.post<String>(urlAnnonces, newAnnonces);
+  }
+
   /** Permet d'annuler une annonce */
   annulerAnnonce(annonceId: number): string{
     this.httpClient.post(`${environment.backendUrl}annonce?aid=${annonceId}&statut=ANNULE`,{}).
@@ -63,3 +68,4 @@ export class DataService {
   }
 
 }
+

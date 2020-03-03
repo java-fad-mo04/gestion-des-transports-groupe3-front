@@ -13,7 +13,7 @@ export class AdminMenuComponent implements OnInit {
 
   constructor() { }
 
-  collaborateurConnexion = new Collaborateur( {nom: 'Gates', prenom: 'Bill'}); 
+
 
   ngOnInit() {
 

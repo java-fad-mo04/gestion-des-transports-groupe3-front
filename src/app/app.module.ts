@@ -30,6 +30,7 @@ import { AdminGererCycleVieVehiculeComponent } from './admin-gerer-cycle-vie-veh
 import { ChauffeurMenuComponent } from './chauffeur-menu/chauffeur-menu.component';
 import { ChauffeurVisualiserPlanningComponent } from './chauffeur-visualiser-planning/chauffeur-visualiser-planning.component';
 import { ChauffeurVisualiserOccupationComponent } from './chauffeur-visualiser-occupation/chauffeur-visualiser-occupation.component';
+import { MenuCollabComponent } from './menu-collab/menu-collab.component';
 
 
 const routes: Routes = [
@@ -37,11 +38,10 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'connexion', component: AuthComponent },
   { path: 'connexion/profil', component: CollabProfilComponent },
-  { path: 'collaborateur', component: CollabMenuComponent },
+  { path: 'collaborateur', component: MenuCollabComponent },
   { path: 'collaborateur/reservations', component: CollabReservationsComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/annonces', component: CollabAnnoncesComponent }, // créer pour test de liaison entre panneau
   { path: 'collaborateur/statistiques', component: CollabStatistiquesComponent }, // créer pour test de liaison entre panneau
-  { path: 'connexion', component: AuthComponent },
   { path: 'collaborateur/propositions/creer', component: CollabCreerComponent }, // créer pour test de liaison entre panneau
   { path: 'admin',                            component: AdminMenuComponent },                  // Menu administrateur
   { path: 'admin/chauffeurs',                 component: AdminGererChauffeurComponent },        // Gérer les chauffeurs
@@ -80,7 +80,8 @@ const routes: Routes = [
     AdminGererCycleVieVehiculeComponent,
     ChauffeurVisualiserPlanningComponent,
     ChauffeurVisualiserOccupationComponent,
-    ChauffeurMenuComponent
+    ChauffeurMenuComponent,
+    MenuCollabComponent
 
   ],
   imports: [

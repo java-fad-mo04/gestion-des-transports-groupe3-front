@@ -13,7 +13,7 @@ export class ChauffeurMenuComponent implements OnInit {
 
   constructor() { }
 
-  collaborateurConnexion = new Collaborateur( {nom: 'Prost', prenom: 'Alain'}); 
+
 
   ngOnInit() {
 

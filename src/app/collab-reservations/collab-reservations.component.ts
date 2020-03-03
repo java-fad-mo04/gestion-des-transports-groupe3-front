@@ -13,7 +13,6 @@ import { Collaborateur } from '../auth/auth.domains';
 
 })
 export class CollabReservationsComponent implements OnInit {
-  @Input() matricule: number; // reçoit le matricule du collaborateur pour traitement des reservations
   headElements = ['Date/Heure', 'Départ', 'Destination', '']; // entête de la table
   listeResaCovoiturageCov$: Observable<ReservationVm[]>;
   listeHistoriqueResaCovoiturage: Observable<ReservationVm[]>;

@@ -29,10 +29,10 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
+          <a mdbBtn style="width:200px" color="primary" (click)="choixCollaborateur()" mdbWavesEffect>Collaborateur </a>
         </div>
         <div class="col">
-          <a href="/admin/chauffeur" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
+          <a mdbBtn  style="width:200px" color="primary" (click)="choixChauffeur()" mdbWavesEffect >Chauffeur    </a>
         </div>
 
       </div>
@@ -72,13 +72,14 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col">
-          <a href="/collaborateur/reservations" mdbBtn style="width:200px" color="primary" mdbWavesEffect>Collaborateur </a>
+          <a  mdbBtn style="width:200px" color="primary" (click)="choixCollaborateur()" mdbWavesEffect >Collaborateur </a>
+
+      </div>
+        <div class="col">
+          <a  mdbBtn  style="width:200px" color="primary" (click)="choixChauffeur()" mdbWavesEffect >Chauffeur    </a>
         </div>
         <div class="col">
-          <a href="/admin/chauffeur" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Chauffeur    </a>
-        </div>
-        <div class="col">
-          <a href="/administrateur/" mdbBtn  style="width:200px" color="primary" mdbWavesEffect>Administrateur</a>
+          <a mdbBtn  style="width:200px" color="primary" (click)="choixAdministrateur()" mdbWavesEffect >Administrateur</a>
         </div>
       </div>
        </mdb-card-body>

@@ -18,12 +18,12 @@ export class CollabMenuComponent implements OnInit {
 
 
   headMenuCollaborateur: string[] = ['Vos Réservations', 'Vos Annonces', 'Statistiques'];
-  headMenuAdministrateur: string[] = ['Chauffeurs', 'Véhicules'];
+  headMenuAdministrateur: string[] = ['Chauffeurs', 'Véhicules',' '];
   headMenuChauffeur: string[] = ['Planning', 'Occupation', ' '];
 
   cheminRouteurCollaborateur: string[] = ['collaborateur/reservations', 'collaborateur/annonces', 'collaborateur/statistiques'];
-  cheminRouteurChauffeur: string[] = ['chauffeur/planning', 'chauffeur/occupation'];
-  cheminRouteurAdministrateur: string[] = ['admin/chauffeurs', 'admin/vehicules'];
+  cheminRouteurChauffeur: string[] = ['chauffeur/planning', 'chauffeur/occupation', ' '];
+  cheminRouteurAdministrateur: string[] = ['admin/chauffeurs', 'admin/vehicules',' '];
 
   constructor(private _cookieService: CookieService, private _authService: AuthService) { }
 
@@ -33,37 +33,23 @@ export class CollabMenuComponent implements OnInit {
 
   ngOnInit() {
     this.collaborateurConnexion = JSON.parse(this._cookieService.get('col'));
-    console.log(this._cookieService.getAll());
     this.profil = this._cookieService.get('choixProfil') === null ? '0' : this._cookieService.get('choixProfil');
 
-    console.log('check' + this._cookieService.check('choixProfil'));
-    console.log(this.profil);
-    console.log('###' + this._cookieService.get('choixProfil'));
-    console.log('aa' + this.profil);
 
     switch (this.profil) {
       case '0' : {
         this.chemin = this.cheminRouteurCollaborateur;
         this.headMenu = this.headMenuCollaborateur;
-        console.log('*' + this.profil);
-        console.log(this.chemin);
-        console.log(this.headMenu);
         break;
       }
       case '1': {
       this.chemin = this.cheminRouteurChauffeur;
         this.headMenu = this.headMenuChauffeur;
-        console.log('**' + this.profil);
-        console.log(this.chemin);
-        console.log(this.headMenu);
         break;
       }
       case '2': {
       this.chemin = this.cheminRouteurAdministrateur;
         this.headMenu = this.headMenuAdministrateur;
-        console.log('***' + this.profil);
-        console.log(this.chemin);
-        console.log(this.headMenu);
         break;
       }
     }

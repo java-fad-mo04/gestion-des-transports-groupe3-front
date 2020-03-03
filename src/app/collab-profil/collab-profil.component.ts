@@ -18,7 +18,6 @@ export class CollabProfilComponent implements OnInit {
   ad: Boolean; ch: Boolean; co: Boolean;
   case: number;
 
-
   constructor(private _router: Router, private dataAuth: AuthService, private routeur: Router, private _cookieService: CookieService) { }
 
   ngOnInit() {
@@ -37,18 +36,15 @@ export class CollabProfilComponent implements OnInit {
     if ((!this.ad) && (!this.ch) && (this.co)) {
       /* dirigé directement sur la page nommé ci-dessou */
       this._cookieService.set('choixProfil', '0');
-      this.routeur.navigate(['/collaborateur']);
-
+      this._router.navigate(['/collaborateur']);
     }
 
     /*
     Donne une valeur de résultat qui sera exploitée par un case dans collab-profil.component.html
     */
-
     if ((!this.ad) && (this.ch) && (!this.co)) { this.case = 1; }
     if ((this.ad) && (!this.ch) && (this.co)) { this.case = 2; }
     if ((this.ad) && (!this.ch) && (!this.co)) { this.case = 2; }
-
 
   }
 

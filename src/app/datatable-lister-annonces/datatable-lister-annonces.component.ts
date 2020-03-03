@@ -1,20 +1,25 @@
 import { Component, OnInit, Input, ChangeDetectorRef, ViewChild, AfterViewInit } from '@angular/core';
-import { MdbTablePaginationComponent, MdbTableDirective } from 'angular-bootstrap-md';
 import {Annonce} from '../models/Annonce';
-import { bindNodeCallback } from 'rxjs';
+import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-datatable-lister-annonces',
   templateUrl: `./datatable-lister-annonces.component.html`,
   styles: []
 })
+
 export class DatatableListerAnnoncesComponent implements OnInit {
 
   @Input() listeAnnonces: Annonce[];
 
-  constructor() { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  annuler(annonceId: number): void {
+    console.log(this.dataService.annulerAnnonce(annonceId));
   }
 
 }

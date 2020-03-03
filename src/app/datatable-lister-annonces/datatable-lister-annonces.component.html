@@ -7,14 +7,18 @@
         <th scope="col" class="text-center align-middle">Lieu de départ</th>
         <th scope="col" class="text-center align-middle">Lieu de destination</th>
         <th scope="col" class="text-center align-middle">Nombre de voyageurs</th>
+        <th scope="col"></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="listeAnnonces">
       <tr *ngFor="let annonce of listeAnnonces;">
         <td class="text-center align-middle">{{annonce.dateDepart | date: 'dd/MM/yyyy HH:mm'}}</td>
         <td class="text-center align-middle">{{annonce.adresseDepart}}</td>
         <td class="text-center align-middle">{{annonce.adresseArrivee}}</td>
         <td class="text-center align-middle">{{annonce.nombreReservationsActives+1}}</td>
+        <td class="text-center align-middle">
+          <button type="button" value="Annuler" class="btn btn-danger" (click)="annuler(annonce.id);" >Annuler</button>
+        </td>
       </tr>
     </tbody>
   </table>

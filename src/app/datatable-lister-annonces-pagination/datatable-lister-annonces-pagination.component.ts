@@ -21,7 +21,7 @@ export class DatatableListerAnnoncesPaginationComponent implements OnInit {
   constructor(private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-    console.log("Liste annonces: "+JSON.stringify(this.listeAnnonces));
+    //console.log('Liste annonces: '+JSON.stringify(this.listeAnnonces));
     this.listeAnnonces.forEach((annonce: Annonce) => {
       this.elements.push({dateDepart: annonce.dateDepart, adresseDepart: annonce.adresseDepart,
          adresseArrivee: annonce.adresseArrivee, nombreReservationsActives: annonce.nombreReservationsActives});

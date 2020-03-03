@@ -36,8 +36,9 @@ export class CollabProfilComponent implements OnInit {
 
     if ((!this.ad) && (!this.ch) && (this.co)) {
       /* dirigé directement sur la page nommé ci-dessou */
+      this._cookieService.set('choixProfil', '0');
       this.routeur.navigate(['/collaborateur']);
-      // this.choixProfil(0);
+
     }
 
     /*
@@ -69,12 +70,5 @@ export class CollabProfilComponent implements OnInit {
     this._router.navigate(['/admin']);
   }
 
-  /*
- console.log('tt'+ choix);
- CollabMenuComponent.profil = choix ;
- console.log('aa'+ CollabMenuComponent.profil);
-
-
-     this._cookieService.set('choixProfil', '' + choix);*/
 
 }

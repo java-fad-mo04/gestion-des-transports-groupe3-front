@@ -34,7 +34,7 @@ export class CollabMenuComponent implements OnInit {
   ngOnInit() {
     this.collaborateurConnexion = JSON.parse(this._cookieService.get('col'));
     console.log(this._cookieService.getAll());
-    this.profil = this._cookieService.get('choixProfil') == null ? '0' : this._cookieService.get('choixProfil');
+    this.profil = this._cookieService.get('choixProfil') === null ? '0' : this._cookieService.get('choixProfil');
 
     console.log('check' + this._cookieService.check('choixProfil'));
     console.log(this.profil);

@@ -11,7 +11,7 @@ import { CollabMenuComponent } from './collab-menu/collab-menu.component';
 })
 export class DataService {
 
-  constructor(private http: HttpClient, private _cookieService: CookieService, private colMenu: CollabMenuComponent) { }
+  constructor(private http: HttpClient, private _cookieService: CookieService) { }
 
 
   url_an = 'http://localhost:8080/resa?cid=';
@@ -22,7 +22,7 @@ export class DataService {
 
   rechercherAnnonceCovoiturage(): Observable<ReservationVm[]> {
     const collaborateur: Collaborateur = JSON.parse(this._cookieService.get('col'));
-    console.log("ID"+ collaborateur.id);
+    console.log( "ID" + collaborateur.id);
     return this.http.get<any[]>(this.url_an + collaborateur.id);
   }
 

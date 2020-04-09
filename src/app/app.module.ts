@@ -34,7 +34,6 @@ import { ChauffeurVisualiserOccupationComponent } from './chauffeur-visualiser-o
 import { PublierAnnonceComponent } from './publier-annonce/publier-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import { MenuCollabComponent } from './menu-collab/menu-collab.component';
-import { TestJpComponent } from './test-jp/test-jp.component';
 
 
 
